@@ -38,5 +38,10 @@ namespace CajeroAutomatico
         {
             Saldo = Saldo + cantidad;
         }
+
+        public long consultarNumCuenta()
+        {
+            return NumCuenta;
+        }
     }
 }

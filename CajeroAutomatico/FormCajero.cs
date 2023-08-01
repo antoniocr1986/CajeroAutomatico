@@ -12,8 +12,8 @@ namespace CajeroAutomatico
 {
     public partial class FormCajero : Form
     {
-        private Usuario usuario, usuario2;
-        private CuentaCorriente cuenta, cuenta2;
+        private Usuario usuario;
+        private CuentaCorriente cuenta;
 
         public FormCajero(Usuario usuario, CuentaCorriente cuenta)
         {
@@ -29,25 +29,26 @@ namespace CajeroAutomatico
 
         private void buttonConsultaSaldo_Click(object sender, EventArgs e)
         {
-            double saldoTotal = 0;
+            double saldoTotal = cuenta.consultarSaldo();
             MessageBox.Show("El saldo total de su cuenta es: " + saldoTotal);
         }
 
         private void buttonRetirarSaldo_Click(object sender, EventArgs e)
         {
-            double retiro = 0;
-            MessageBox.Show("El retiro: " + retiro + " ha sido extradido de su cuenta.");
+            FormRetirar retirar = new FormRetirar(cuenta);
+            retirar.ShowDialog();
         }
 
         private void buttonIngresarSaldo_Click(object sender, EventArgs e)
         {
-            double saldo = 0;
-            MessageBox.Show("El ingreso de " + saldo+" ha sido transferido a su cuenta.");
+            FormIngresar ingresar = new FormIngresar(cuenta);
+            ingresar.ShowDialog();  
         }
 
         private void buttonVerNumCuenta_Click(object sender, EventArgs e)
         {
-            double numCuenta = 0;
+            long numCuenta = 0;
+            numCuenta = cuenta.consultarNumCuenta();
             MessageBox.Show("El numero de cuenta es "+numCuenta);
         }
 

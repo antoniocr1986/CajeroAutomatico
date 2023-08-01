@@ -15,11 +15,11 @@ namespace CajeroAutomatico
         static void Main()
         {
             Usuario usuario = new Usuario("Antonio", 1234, 12345678);
-            CuentaCorriente cuenta = new CuentaCorriente(20000, 1234, "Antonio", 12345678);
+            CuentaCorriente cuenta = new CuentaCorriente(20000, 1234, usuario, 12345678);
 
 
             Usuario usuario2 = new Usuario("Mario", 0001000100010001, 123456);
-            CuentaCorriente cuenta2 = new CuentaCorriente(50, 0001000100010001, "Mario", 123456);
+            CuentaCorriente cuenta2 = new CuentaCorriente(50, 0001000100010001, usuario2, 123456);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

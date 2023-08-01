@@ -52,7 +52,7 @@ namespace CajeroAutomatico
                     {
                         this.Hide();
                         FormCajero cajero1 = new FormCajero(new Usuario("Antonio", long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxNumTarjeta.Text)),
-                            new CuentaCorriente(20000,1234123412341234,"Antonio",12345678));                     
+                            new CuentaCorriente(20000,1234123412341234,usuario,12345678));                     
                         cajero1.Show();                
 
                     }
