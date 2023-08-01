@@ -1,0 +1,12 @@
+CAJERO ELECTRONICO V1.0
+------------------------------------------------------------------------------------
+-Comprobar si num tarjeta se ha grabado correctamente
+-Verificar usuario pidiendo el PIN
+-Si la verificacion es negativa cerrar sesion al usuario.
+-Si la verificacion es positiva mostrar varias opciones como disponibilidad de efectivo, cinco transacciones recientes y retirada de efectivo.
+-Dar la posibilidad de retirar hasta 1000 € en efectivo en cada transaccion hasta un total de transacciones limite de 10 al dia (comprobar que el retire es menor que el saldo disponible).
+
+
+AMPLICACION MAS COMPLICADA (MAS ADELANTE) V2.0
+-------------------------------------------------------------------------------------
+-Posibilidad de registrar nuevo PIN y numero de telefono, un estado de cuenta detallado y un sistema rápido de retirada de efectivo (20,50, 100 € etc)
