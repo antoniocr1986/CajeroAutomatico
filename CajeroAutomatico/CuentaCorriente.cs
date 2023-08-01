@@ -10,10 +10,10 @@ namespace CajeroAutomatico
     {
         double Saldo { get; set; }
         long NumCuenta { get; set; }
-        string Usuario { get; set; }
+        Usuario Usuario { get; set; }
         int PIN { get; set; }
 
-        public CuentaCorriente(double saldo, long numCuenta,string usuario, int pin)
+        public CuentaCorriente(double saldo, long numCuenta,Usuario usuario, int pin)
         {
             Saldo = saldo;
             NumCuenta = numCuenta;
