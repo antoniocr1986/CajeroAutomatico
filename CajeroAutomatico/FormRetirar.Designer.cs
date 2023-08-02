@@ -36,7 +36,7 @@
             // buttonConfirmarRetiro
             // 
             this.buttonConfirmarRetiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfirmarRetiro.Location = new System.Drawing.Point(111, 126);
+            this.buttonConfirmarRetiro.Location = new System.Drawing.Point(70, 84);
             this.buttonConfirmarRetiro.Name = "buttonConfirmarRetiro";
             this.buttonConfirmarRetiro.Size = new System.Drawing.Size(128, 43);
             this.buttonConfirmarRetiro.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 58);
+            this.label1.Location = new System.Drawing.Point(30, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // textBoxRetirar
             // 
-            this.textBoxRetirar.Location = new System.Drawing.Point(111, 57);
+            this.textBoxRetirar.Location = new System.Drawing.Point(93, 39);
             this.textBoxRetirar.Name = "textBoxRetirar";
             this.textBoxRetirar.Size = new System.Drawing.Size(182, 20);
             this.textBoxRetirar.TabIndex = 2;
@@ -66,7 +66,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(345, 198);
+            this.ClientSize = new System.Drawing.Size(295, 159);
             this.Controls.Add(this.textBoxRetirar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonConfirmarRetiro);

@@ -70,6 +70,7 @@
             this.Controls.Add(this.labelIngreso);
             this.Controls.Add(this.textBoxIngresar);
             this.Controls.Add(this.buttonConfirmar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormIngresar";
             this.Text = "INGRESAR DINERO";
             this.ResumeLayout(false);

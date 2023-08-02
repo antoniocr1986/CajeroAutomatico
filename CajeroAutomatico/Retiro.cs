@@ -8,13 +8,20 @@ namespace CajeroAutomatico
 {
     public class Retiro
     {
-        DateTime Fecha { get; set; }
-        double ValorRetiro { get; set; }
-        int RetirosHoyNum { get; set; }
-        double RetirosHoyEuros { get; set; }
+        private DateTime fecha;
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value.Date; }
+        }
+        public double ValorRetiro { get; set; }
+        public int RetirosHoyNum { get; set; }
+        public double RetirosHoyEuros { get; set; }
 
         public Retiro()
         {
+            Fecha = DateTime.Now;   
+            RetirosHoyNum = 0;  
         }
 
         public Retiro(DateTime fecha, double valorRetiro)

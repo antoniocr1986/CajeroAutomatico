@@ -12,15 +12,19 @@ namespace CajeroAutomatico
 {
     public partial class FormCajero : Form
     {
-        private Usuario usuario;
-        private CuentaCorriente cuenta;
+        private Usuario usuario,usuario2;
+        private CuentaCorriente cuenta,cuenta2;
+        private Retiro retiro;
 
-        public FormCajero(Usuario usuario, CuentaCorriente cuenta)
+        public FormCajero(Usuario usuario, Usuario usuario2, CuentaCorriente cuenta,CuentaCorriente cuenta2, Retiro retiro)
         {
             InitializeComponent();
 
             this.usuario = usuario;
             this.cuenta = cuenta;
+            this.cuenta2 = cuenta2;
+            this.usuario2 = usuario2;
+            this.retiro = retiro;
         }
 
         private void FormCajero_Load(object sender, EventArgs e)
@@ -35,7 +39,7 @@ namespace CajeroAutomatico
 
         private void buttonRetirarSaldo_Click(object sender, EventArgs e)
         {
-            FormRetirar retirar = new FormRetirar(cuenta);
+            FormRetirar retirar = new FormRetirar(cuenta,retiro);
             retirar.ShowDialog();
         }
 
@@ -61,6 +65,10 @@ namespace CajeroAutomatico
         {
             this.Hide();
             FormLogin formLogin = new FormLogin();
+            formLogin.usuario = usuario;
+            formLogin.cuenta = cuenta;
+            formLogin.usuario2 = usuario2;
+            formLogin.cuenta2 = cuenta2;
             formLogin.ShowDialog();
         }
     }
