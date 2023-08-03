@@ -23,10 +23,30 @@ namespace CajeroAutomatico
 
         private void buttonConfirmar_Click(object sender, EventArgs e)
         {
-            double cantidadIngresar;
-            cantidadIngresar = double.Parse(textBoxIngresar.Text);
-            Cuenta.ingresarSaldo(cantidadIngresar);
-            MessageBox.Show("La cantidad ingresada ha sido de " + cantidadIngresar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
+            if (Cuenta.Contador < 5)
+            {
+                double cantidadIngresar;
+                cantidadIngresar = double.Parse(textBoxIngresar.Text);
+                Cuenta.ingresarSaldo(cantidadIngresar);
+                MessageBox.Show("La cantidad ingresada ha sido de " + cantidadIngresar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
+                Cuenta.Transferencias[Cuenta.Contador] = "Ingreso: " + cantidadIngresar;
+                Cuenta.Contador++;
+            }
+            else
+            {
+                Cuenta.Contador = 0;
+                double cantidadIngresar;
+                cantidadIngresar = double.Parse(textBoxIngresar.Text);
+                Cuenta.ingresarSaldo(cantidadIngresar);
+                MessageBox.Show("La cantidad ingresada ha sido de " + cantidadIngresar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
+                Cuenta.Transferencias[Cuenta.Contador] = "Ingreso: " + cantidadIngresar;
+                Cuenta.Contador++;
+            }
+        }
+
+        private void FormIngresar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

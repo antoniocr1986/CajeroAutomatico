@@ -39,17 +39,29 @@ namespace CajeroAutomatico
                     {
                         Retiro.RetirosHoyNum = 0;
                     }
-                    MessageBox.Show("DateTimeNow: " + DateTime.Now.Date +
-                        "\nRetiro.Fecha: " + Retiro.Fecha);
                     if (Retiro.RetirosHoyNum >= 10)
                     {
                         MessageBox.Show("Has superado el maximo de retiros de hoy: 10");
                     }
                     else
                     {
-                        Cuenta.retirarSaldo(cantidadRetirar);
-                        Retiro.RetirosHoyNum++;
-                        MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
+                        if (Cuenta.Contador < 5)
+                        {
+                            Cuenta.retirarSaldo(cantidadRetirar);
+                            Retiro.RetirosHoyNum++;
+                            MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
+                            Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar;
+                            Cuenta.Contador++;
+                        }
+                        else
+                        {
+                            Cuenta.Contador = 0;
+                            Cuenta.retirarSaldo(cantidadRetirar);
+                            Retiro.RetirosHoyNum++;
+                            MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
+                            Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar;
+                            Cuenta.Contador++;
+                        }
                     }                 
                 }
             }
@@ -58,6 +70,11 @@ namespace CajeroAutomatico
                 MessageBox.Show("La cantidad no se puede retirar porque es mas grande que el total del saldo de la cuenta." +
                     "\n\nTOTAL CUENTA: " + Cuenta.consultarSaldo());
             }
+        }
+
+        private void FormRetirar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

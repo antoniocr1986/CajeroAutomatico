@@ -112,6 +112,7 @@ namespace CajeroAutomatico
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormCajero";
             this.Text = "CAJERO AUTOMATICO";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCajero_FormClosing);
             this.Load += new System.EventHandler(this.FormCajero_Load);
             this.ResumeLayout(false);
 

@@ -12,6 +12,8 @@ namespace CajeroAutomatico
         long NumCuenta { get; set; }
         Usuario Usuario { get; set; }
         int PIN { get; set; }
+        public String[] Transferencias { get; set; }
+        public int Contador { get; set; }
 
         public CuentaCorriente(double saldo, long numCuenta,Usuario usuario, int pin)
         {
@@ -19,6 +21,7 @@ namespace CajeroAutomatico
             NumCuenta = numCuenta;
             Usuario = usuario;
             PIN = pin;
+            Transferencias = new string[] { "", "", "", "", "" };
         }
 
         public double consultarSaldo()

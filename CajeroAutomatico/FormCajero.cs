@@ -56,9 +56,18 @@ namespace CajeroAutomatico
             MessageBox.Show("El numero de cuenta es "+numCuenta);
         }
 
+        private void FormCajero_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit();
+            }
+        }
+
         private void buttonTransferencias_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Las ultimas transferencias son: ");
+            MessageBox.Show("Las ultimas transferencias son:\n" + cuenta.Transferencias[0]+"\n"+ cuenta.Transferencias[1] + "\n"+
+                cuenta.Transferencias[2] + "\n"+ cuenta.Transferencias[3] + "\n"+ cuenta.Transferencias[4] + "\n");
         }
 
         private void buttonCerrarSesion_Click(object sender, EventArgs e)
