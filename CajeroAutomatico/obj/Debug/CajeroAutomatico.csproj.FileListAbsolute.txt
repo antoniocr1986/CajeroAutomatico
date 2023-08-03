@@ -12,3 +12,17 @@ C:\Users\anton\source\repos\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAu
 C:\Users\anton\source\repos\CajeroAutomatico\CajeroAutomatico\bin\Debug\CajeroAutomatico.pdb
 C:\Users\anton\source\repos\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.FormIngresar.resources
 C:\Users\anton\source\repos\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.FormRetirar.resources
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\bin\Debug\CajeroAutomatico.exe.config
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\bin\Debug\CajeroAutomatico.exe
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\bin\Debug\CajeroAutomatico.pdb
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.csproj.AssemblyReference.cache
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.csproj.SuggestedBindingRedirects.cache
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.FormIngresar.resources
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.FormLogin.resources
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.FormCajero.resources
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.FormRetirar.resources
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.Properties.Resources.resources
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.csproj.GenerateResource.cache
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.csproj.CoreCompileInputs.cache
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.exe
+C:\Users\anton\Desktop\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.pdb

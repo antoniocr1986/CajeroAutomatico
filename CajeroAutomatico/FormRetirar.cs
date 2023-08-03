@@ -49,8 +49,8 @@ namespace CajeroAutomatico
                         {
                             Cuenta.retirarSaldo(cantidadRetirar);
                             Retiro.RetirosHoyNum++;
-                            MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
-                            Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar;
+                            MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + Cuenta.consultarSaldo()+" €");
+                            Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar+" €";
                             Cuenta.Contador++;
                         }
                         else
@@ -58,8 +58,8 @@ namespace CajeroAutomatico
                             Cuenta.Contador = 0;
                             Cuenta.retirarSaldo(cantidadRetirar);
                             Retiro.RetirosHoyNum++;
-                            MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " y el saldo total de la cuenta es de " + Cuenta.consultarSaldo());
-                            Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar;
+                            MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + Cuenta.consultarSaldo() + " €");
+                            Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar+ " €";
                             Cuenta.Contador++;
                         }
                     }                 

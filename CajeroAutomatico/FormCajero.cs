@@ -34,7 +34,7 @@ namespace CajeroAutomatico
         private void buttonConsultaSaldo_Click(object sender, EventArgs e)
         {
             double saldoTotal = cuenta.consultarSaldo();
-            MessageBox.Show("El saldo total de su cuenta es: " + saldoTotal);
+            MessageBox.Show("El saldo total de su cuenta es: " + saldoTotal+" €");
         }
 
         private void buttonRetirarSaldo_Click(object sender, EventArgs e)
