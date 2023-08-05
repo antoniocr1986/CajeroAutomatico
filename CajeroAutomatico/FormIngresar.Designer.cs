@@ -73,7 +73,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormIngresar";
             this.Text = "INGRESAR DINERO";
-            this.Load += new System.EventHandler(this.FormIngresar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

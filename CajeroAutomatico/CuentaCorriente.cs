@@ -8,10 +8,10 @@ namespace CajeroAutomatico
 {
     public class CuentaCorriente
     {
-        double Saldo { get; set; }
-        long NumCuenta { get; set; }
-        Usuario Usuario { get; set; }
-        int PIN { get; set; }
+        public double Saldo { get; set; }
+        public long NumCuenta { get; set; }
+        public Usuario Usuario { get; set; }
+        public int PIN { get; set; }
         public String[] Transferencias { get; set; }
         public int Contador { get; set; }
 
@@ -33,13 +33,13 @@ namespace CajeroAutomatico
         {
             if (cantidad > 0)
             {
-                Saldo = Saldo - cantidad;
+                Saldo -= cantidad;
             }  
         }
 
         public void ingresarSaldo( double cantidad)
         {
-            Saldo = Saldo + cantidad;
+            Saldo += cantidad;
         }
 
         public long consultarNumCuenta()

@@ -8,9 +8,9 @@ namespace CajeroAutomatico
 {
     public class Usuario
     {
-        string Nombre;
-        long NumTarjeta;
-        int PIN;
+        public string Nombre { get;set; }
+        public long NumTarjeta { get; set; }
+        public int PIN { get; set; }
 
         public Usuario(string nombre, long numTarjeta, int pin)
         {
@@ -21,13 +21,7 @@ namespace CajeroAutomatico
 
         public bool verificarUsuario(long numTarjeta, int pin)
         {
-            if (numTarjeta == NumTarjeta && pin == PIN)
-            {
-                return true;
-            }
-            return false;
+            return numTarjeta == NumTarjeta && pin == PIN;
         }
-
-
     }
 }

@@ -43,10 +43,5 @@ namespace CajeroAutomatico
                 Cuenta.Contador++;
             }
         }
-
-        private void FormIngresar_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

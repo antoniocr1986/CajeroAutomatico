@@ -95,7 +95,6 @@ namespace CajeroAutomatico
             this.Name = "FormLogin";
             this.Text = "CAJERO AUTOMATICO: LOGIN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormLogin_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
