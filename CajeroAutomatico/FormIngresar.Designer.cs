@@ -42,7 +42,7 @@
             this.buttonConfirmar.TabIndex = 0;
             this.buttonConfirmar.Text = "CONFIRMAR";
             this.buttonConfirmar.UseVisualStyleBackColor = true;
-            this.buttonConfirmar.Click += new System.EventHandler(this.buttonConfirmar_Click);
+            this.buttonConfirmar.Click += new System.EventHandler(this.ButtonConfirmar_Click);
             // 
             // textBoxIngresar
             // 

@@ -74,10 +74,10 @@ namespace CajeroAutomatico
         {
             this.Hide();
             FormLogin formLogin = new FormLogin();
-            formLogin.usuario = usuario;
-            formLogin.cuenta = cuenta;
-            formLogin.usuario2 = usuario2;
-            formLogin.cuenta2 = cuenta2;
+            formLogin.Usuario = usuario;
+            formLogin.Cuenta = cuenta;
+            formLogin.Usuario2 = usuario2;
+            formLogin.Cuenta2 = cuenta2;
             formLogin.ShowDialog();
         }
     }

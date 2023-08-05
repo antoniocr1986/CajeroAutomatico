@@ -12,8 +12,10 @@ namespace CajeroAutomatico
 {
     public partial class FormLogin : Form
     {
-        public Usuario usuario, usuario2;
-        public CuentaCorriente cuenta, cuenta2;
+        public Usuario Usuario {get;set;}
+        public Usuario Usuario2 { get; set; }
+        public CuentaCorriente Cuenta { get; set; }
+        public CuentaCorriente Cuenta2 { get; set; }
 
         public FormLogin()
         {
@@ -29,9 +31,8 @@ namespace CajeroAutomatico
             }
         }
 
-        private void buttonComprobar_Click(object sender, EventArgs e)
+        private void ButtonComprobar_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (string.IsNullOrEmpty(textBoxNumTarjeta.Text) || string.IsNullOrEmpty(textBoxPIN.Text))
@@ -43,13 +44,14 @@ namespace CajeroAutomatico
                 {
                     long numeroTarjetaIngresado = long.Parse(textBoxNumTarjeta.Text);
                     int pinIngresado = int.Parse(textBoxPIN.Text);
-                    if (usuario != null && usuario.verificarUsuario(long.Parse(textBoxNumTarjeta.Text),int.Parse(textBoxPIN.Text))|| usuario2 != null && usuario2.verificarUsuario(long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxPIN.Text)))
+                    if (Usuario != null && Usuario.verificarUsuario(long.Parse(textBoxNumTarjeta.Text),int.Parse(textBoxPIN.Text))
+                        || Usuario2 != null && Usuario2.verificarUsuario(long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxPIN.Text)))
                     {
                         this.Hide();
                         FormCajero cajero1 = new FormCajero(new Usuario("Antonio", long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxNumTarjeta.Text)),
                             new Usuario("Mario", 0001000100010001, 123456),
-                            new CuentaCorriente(20000,1234123412341234,usuario,12345678),
-                            new CuentaCorriente(50, 0001000100010001, usuario2, 123456),
+                            new CuentaCorriente(20000,1234123412341234,Usuario,12345678),
+                            new CuentaCorriente(50, 0001000100010001, Usuario2, 123456),
                             new Retiro());                     
                         cajero1.Show();                
 

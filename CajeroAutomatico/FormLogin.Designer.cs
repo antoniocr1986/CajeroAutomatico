@@ -45,7 +45,7 @@ namespace CajeroAutomatico
             this.buttonComprobar.TabIndex = 0;
             this.buttonComprobar.Text = "ENTRAR";
             this.buttonComprobar.UseVisualStyleBackColor = true;
-            this.buttonComprobar.Click += new System.EventHandler(this.buttonComprobar_Click);
+            this.buttonComprobar.Click += new System.EventHandler(this.ButtonComprobar_Click);
             // 
             // label1
             // 

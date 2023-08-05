@@ -12,24 +12,24 @@ namespace CajeroAutomatico
 {
     public partial class FormRetirar : Form
     {
-        private CuentaCorriente Cuenta;
-        private Retiro Retiro;
+        private CuentaCorriente cuenta;
+        private Retiro retiro;
 
         public FormRetirar(CuentaCorriente cuenta,Retiro retiro)
         {
             InitializeComponent();
-            Cuenta = cuenta;
-            Retiro = retiro;
+            this.cuenta = cuenta;
+            this.retiro = retiro;
         }
 
         private void buttonConfirmarRetiro_Click(object sender, EventArgs e)
         {
             double.TryParse(textBoxRetirar.Text, out double cantidadRetirar);
 
-            if (cantidadRetirar > Cuenta.consultarSaldo())
+            if (cantidadRetirar > cuenta.consultarSaldo())
             {
                 MessageBox.Show("La cantidad no se puede retirar porque es mas grande que el total del saldo de la cuenta." +
-                    "\n\nTOTAL CUENTA: " + Cuenta.consultarSaldo());
+                    "\n\nTOTAL CUENTA: " + cuenta.consultarSaldo());
                 return;
             }
             if (cantidadRetirar > 1000)
@@ -38,33 +38,33 @@ namespace CajeroAutomatico
                 return;
             }
 
-            if (DateTime.Now.Date != Retiro.Fecha)
+            if (DateTime.Now.Date != retiro.Fecha)
             {
-                Retiro.RetirosHoyNum = 0;
+                retiro.RetirosHoyNum = 0;
             }
 
-            if (Retiro.RetirosHoyNum >= 10)
+            if (retiro.RetirosHoyNum >= 10)
             {
                 MessageBox.Show("Has superado el maximo de retiros de hoy: 10");
                 return;
             }
                 
-            if (Cuenta.Contador < 5)
+            if (cuenta.Contador < 5)
             {
-                Cuenta.retirarSaldo(cantidadRetirar);
-                Retiro.RetirosHoyNum++;
-                MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + Cuenta.consultarSaldo() + " €");
-                Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar + " €";
-                Cuenta.Contador++;
+                cuenta.retirarSaldo(cantidadRetirar);
+                retiro.RetirosHoyNum++;
+                MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + cuenta.consultarSaldo() + " €");
+                cuenta.Transferencias[cuenta.Contador] = "Retiro: " + cantidadRetirar + " €";
+                cuenta.Contador++;
             }
             else
             {
-                Cuenta.Contador = 0;
-                Cuenta.retirarSaldo(cantidadRetirar);
-                Retiro.RetirosHoyNum++;
-                MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + Cuenta.consultarSaldo() + " €");
-                Cuenta.Transferencias[Cuenta.Contador] = "Retiro: " + cantidadRetirar + " €";
-                Cuenta.Contador++;
+                cuenta.Contador = 0;
+                cuenta.retirarSaldo(cantidadRetirar);
+                retiro.RetirosHoyNum++;
+                MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + cuenta.consultarSaldo() + " €");
+                cuenta.Transferencias[cuenta.Contador] = "Retiro: " + cantidadRetirar + " €";
+                cuenta.Contador++;
             }         
         }
     }

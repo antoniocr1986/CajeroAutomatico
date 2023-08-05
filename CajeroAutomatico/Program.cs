@@ -25,10 +25,10 @@ namespace CajeroAutomatico
             Application.SetCompatibleTextRenderingDefault(false);
 
             FormLogin formLogin1 = new FormLogin();
-            formLogin1.usuario = usuario;
-            formLogin1.cuenta = cuenta;
-            formLogin1.usuario2 = usuario2;
-            formLogin1.cuenta2 = cuenta2;
+            formLogin1.Usuario = usuario;
+            formLogin1.Cuenta = cuenta;
+            formLogin1.Usuario2 = usuario2;
+            formLogin1.Cuenta2 = cuenta2;
             Application.Run(formLogin1);
 
         }
