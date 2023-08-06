@@ -45,7 +45,7 @@ namespace CajeroAutomatico
             this.buttonConsultaSaldo.TabIndex = 0;
             this.buttonConsultaSaldo.Text = "Consulta de saldo";
             this.buttonConsultaSaldo.UseVisualStyleBackColor = true;
-            this.buttonConsultaSaldo.Click += new System.EventHandler(this.buttonConsultaSaldo_Click);
+            this.buttonConsultaSaldo.Click += new System.EventHandler(this.ButtonConsultaSaldo_Click);
             // 
             // buttonRetirarSaldo
             // 
@@ -55,7 +55,7 @@ namespace CajeroAutomatico
             this.buttonRetirarSaldo.TabIndex = 1;
             this.buttonRetirarSaldo.Text = "Retirar saldo";
             this.buttonRetirarSaldo.UseVisualStyleBackColor = true;
-            this.buttonRetirarSaldo.Click += new System.EventHandler(this.buttonRetirarSaldo_Click);
+            this.buttonRetirarSaldo.Click += new System.EventHandler(this.ButtonRetirarSaldo_Click);
             // 
             // buttonVerNumCuenta
             // 
@@ -65,7 +65,7 @@ namespace CajeroAutomatico
             this.buttonVerNumCuenta.TabIndex = 2;
             this.buttonVerNumCuenta.Text = "Ver núm. cuenta\r\n";
             this.buttonVerNumCuenta.UseVisualStyleBackColor = true;
-            this.buttonVerNumCuenta.Click += new System.EventHandler(this.buttonVerNumCuenta_Click);
+            this.buttonVerNumCuenta.Click += new System.EventHandler(this.ButtonVerNumCuenta_Click);
             // 
             // buttonTransferencias
             // 
@@ -75,7 +75,7 @@ namespace CajeroAutomatico
             this.buttonTransferencias.TabIndex = 3;
             this.buttonTransferencias.Text = "Ver transferencias";
             this.buttonTransferencias.UseVisualStyleBackColor = true;
-            this.buttonTransferencias.Click += new System.EventHandler(this.buttonTransferencias_Click);
+            this.buttonTransferencias.Click += new System.EventHandler(this.ButtonTransferencias_Click);
             // 
             // buttonCerrarSesion
             // 
@@ -85,7 +85,7 @@ namespace CajeroAutomatico
             this.buttonCerrarSesion.TabIndex = 4;
             this.buttonCerrarSesion.Text = "Cerrar sesión";
             this.buttonCerrarSesion.UseVisualStyleBackColor = true;
-            this.buttonCerrarSesion.Click += new System.EventHandler(this.buttonCerrarSesion_Click);
+            this.buttonCerrarSesion.Click += new System.EventHandler(this.ButtonCerrarSesion_Click);
             // 
             // buttonIngresarSaldo
             // 
@@ -95,7 +95,7 @@ namespace CajeroAutomatico
             this.buttonIngresarSaldo.TabIndex = 5;
             this.buttonIngresarSaldo.Text = "Ingresar saldo";
             this.buttonIngresarSaldo.UseVisualStyleBackColor = true;
-            this.buttonIngresarSaldo.Click += new System.EventHandler(this.buttonIngresarSaldo_Click);
+            this.buttonIngresarSaldo.Click += new System.EventHandler(this.ButtonIngresarSaldo_Click);
             // 
             // FormCajero
             // 

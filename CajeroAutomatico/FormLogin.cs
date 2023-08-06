@@ -20,7 +20,6 @@ namespace CajeroAutomatico
         public FormLogin()
         {
             InitializeComponent();
-
         }
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)

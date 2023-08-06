@@ -23,7 +23,7 @@ namespace CajeroAutomatico
 
         private void ButtonConfirmar_Click(object sender, EventArgs e)
         {
-            if (Cuenta.Contador < 5)
+            if (Cuenta.Contador < Cuenta.Transferencias.Length)
             {
                 double cantidadIngresar;
                 cantidadIngresar = double.Parse(textBoxIngresar.Text);

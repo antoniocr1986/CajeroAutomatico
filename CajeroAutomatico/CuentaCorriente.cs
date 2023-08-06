@@ -21,7 +21,7 @@ namespace CajeroAutomatico
             NumCuenta = numCuenta;
             Usuario = usuario;
             PIN = pin;
-            Transferencias = new string[] { "", "", "", "", "" };
+            Transferencias = new string[5];
         }
 
         public double consultarSaldo()

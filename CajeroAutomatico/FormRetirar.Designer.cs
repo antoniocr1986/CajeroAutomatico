@@ -42,7 +42,7 @@
             this.buttonConfirmarRetiro.TabIndex = 0;
             this.buttonConfirmarRetiro.Text = "CONFIRMAR";
             this.buttonConfirmarRetiro.UseVisualStyleBackColor = true;
-            this.buttonConfirmarRetiro.Click += new System.EventHandler(this.buttonConfirmarRetiro_Click);
+            this.buttonConfirmarRetiro.Click += new System.EventHandler(this.ButtonConfirmarRetiro_Click);
             // 
             // label1
             // 

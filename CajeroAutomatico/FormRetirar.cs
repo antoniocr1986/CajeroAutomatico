@@ -14,6 +14,8 @@ namespace CajeroAutomatico
     {
         private CuentaCorriente cuenta;
         private Retiro retiro;
+        private readonly int maxRetirar = 1000;
+        private readonly int numMaxRetiros = 10;
 
         public FormRetirar(CuentaCorriente cuenta,Retiro retiro)
         {
@@ -22,7 +24,7 @@ namespace CajeroAutomatico
             this.retiro = retiro;
         }
 
-        private void buttonConfirmarRetiro_Click(object sender, EventArgs e)
+        private void ButtonConfirmarRetiro_Click(object sender, EventArgs e)
         {
             double.TryParse(textBoxRetirar.Text, out double cantidadRetirar);
 
@@ -32,9 +34,9 @@ namespace CajeroAutomatico
                     "\n\nTOTAL CUENTA: " + cuenta.consultarSaldo());
                 return;
             }
-            if (cantidadRetirar > 1000)
+            if (cantidadRetirar > maxRetirar)
             {
-                MessageBox.Show("La cantidad ha retirar no puede ser mas grande de 1000 €");
+                MessageBox.Show("La cantidad ha retirar no puede ser mas grande de: "+ maxRetirar+" €");
                 return;
             }
 
@@ -43,13 +45,13 @@ namespace CajeroAutomatico
                 retiro.RetirosHoyNum = 0;
             }
 
-            if (retiro.RetirosHoyNum >= 10)
+            if (retiro.RetirosHoyNum >= numMaxRetiros)
             {
-                MessageBox.Show("Has superado el maximo de retiros de hoy: 10");
+                MessageBox.Show("Has superado el maximo de retiros de hoy: "+ numMaxRetiros);
                 return;
             }
                 
-            if (cuenta.Contador < 5)
+            if (cuenta.Contador < cuenta.Transferencias.Length)
             {
                 cuenta.retirarSaldo(cantidadRetirar);
                 retiro.RetirosHoyNum++;
