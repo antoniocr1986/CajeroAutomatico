@@ -12,7 +12,6 @@ namespace CajeroAutomatico
 {
     public partial class FormIngresar : Form
     {
-
         private CuentaCorriente Cuenta;
 
         public FormIngresar(CuentaCorriente cuenta)
@@ -35,12 +34,7 @@ namespace CajeroAutomatico
             else
             {
                 Cuenta.Contador = 0;
-                double cantidadIngresar;
-                cantidadIngresar = double.Parse(textBoxIngresar.Text);
-                Cuenta.IngresarSaldo(cantidadIngresar);
-                MessageBox.Show($"La cantidad ingresada ha sido de {cantidadIngresar} € y el saldo total de la cuenta es de {Cuenta.ConsultarSaldo()} €");
-                Cuenta.Transferencias[Cuenta.Contador] = $"Ingreso: {cantidadIngresar} €";
-                Cuenta.Contador++;
+                this.ButtonConfirmar_Click(sender,e);
             }
         }
     }

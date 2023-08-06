@@ -40,7 +40,7 @@ namespace CajeroAutomatico
                 return;
             }
 
-            if (DateTime.Now.Date != retiro.Fecha)
+            if (DateTime.Now.Date != retiro.Fecha.Date)
             {
                 retiro.RetirosHoyNum = 0;
             }
@@ -62,11 +62,7 @@ namespace CajeroAutomatico
             else
             {
                 cuenta.Contador = 0;
-                cuenta.RetirarSaldo(cantidadRetirar);
-                retiro.RetirosHoyNum++;
-                MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de {cuenta.ConsultarSaldo()} €");
-                cuenta.Transferencias[cuenta.Contador] = $"Retiro: {cantidadRetirar} €";
-                cuenta.Contador++;
+                this.ButtonConfirmarRetiro_Click(sender, e);
             }         
         }
     }

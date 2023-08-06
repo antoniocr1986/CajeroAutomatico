@@ -53,7 +53,6 @@ namespace CajeroAutomatico
                             new CuentaCorriente(50, 0001000100010001, Usuario2, 123456),
                             new Retiro());                     
                         cajero1.Show();                
-
                     }
                     else
                     {
