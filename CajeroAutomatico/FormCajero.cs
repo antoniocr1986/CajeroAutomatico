@@ -33,8 +33,8 @@ namespace CajeroAutomatico
 
         private void ButtonConsultaSaldo_Click(object sender, EventArgs e)
         {
-            double saldoTotal = cuenta.consultarSaldo();
-            MessageBox.Show("El saldo total de su cuenta es: " + saldoTotal+" €");
+            double saldoTotal = cuenta.ConsultarSaldo();
+            MessageBox.Show($"El saldo total de su cuenta es: {saldoTotal} €");
         }
 
         private void ButtonRetirarSaldo_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace CajeroAutomatico
         private void ButtonVerNumCuenta_Click(object sender, EventArgs e)
         {
             long numCuenta = 0;
-            numCuenta = cuenta.consultarNumCuenta();
+            numCuenta = cuenta.ConsultarNumCuenta();
             MessageBox.Show("El numero de cuenta es "+numCuenta);
         }
 
@@ -66,8 +66,8 @@ namespace CajeroAutomatico
 
         private void ButtonTransferencias_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Las ultimas transferencias son:\n" + cuenta.Transferencias[0]+"\n"+ cuenta.Transferencias[1] + "\n"+
-                cuenta.Transferencias[2] + "\n"+ cuenta.Transferencias[3] + "\n"+ cuenta.Transferencias[4] + "\n");
+            MessageBox.Show($"Las ultimas transferencias son:\n{cuenta.Transferencias[0]}\n{cuenta.Transferencias[1]}\n"+
+                $"{cuenta.Transferencias[2]}\n{cuenta.Transferencias[3]}\n{cuenta.Transferencias[4]}");
         }
 
         private void ButtonCerrarSesion_Click(object sender, EventArgs e)

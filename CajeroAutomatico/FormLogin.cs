@@ -43,8 +43,8 @@ namespace CajeroAutomatico
                 {
                     long numeroTarjetaIngresado = long.Parse(textBoxNumTarjeta.Text);
                     int pinIngresado = int.Parse(textBoxPIN.Text);
-                    if (Usuario != null && Usuario.verificarUsuario(long.Parse(textBoxNumTarjeta.Text),int.Parse(textBoxPIN.Text))
-                        || Usuario2 != null && Usuario2.verificarUsuario(long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxPIN.Text)))
+                    if (Usuario != null && Usuario.VerificarUsuario(long.Parse(textBoxNumTarjeta.Text),int.Parse(textBoxPIN.Text))
+                        || Usuario2 != null && Usuario2.VerificarUsuario(long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxPIN.Text)))
                     {
                         this.Hide();
                         FormCajero cajero1 = new FormCajero(new Usuario("Antonio", long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxNumTarjeta.Text)),

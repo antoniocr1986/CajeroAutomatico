@@ -28,15 +28,15 @@ namespace CajeroAutomatico
         {
             double.TryParse(textBoxRetirar.Text, out double cantidadRetirar);
 
-            if (cantidadRetirar > cuenta.consultarSaldo())
+            if (cantidadRetirar > cuenta.ConsultarSaldo())
             {
-                MessageBox.Show("La cantidad no se puede retirar porque es mas grande que el total del saldo de la cuenta." +
-                    "\n\nTOTAL CUENTA: " + cuenta.consultarSaldo());
+                MessageBox.Show($"La cantidad no se puede retirar porque es mas grande que el total del saldo de la cuenta." +
+                    "\n\nTOTAL CUENTA: " +cuenta.ConsultarSaldo());
                 return;
             }
             if (cantidadRetirar > maxRetirar)
             {
-                MessageBox.Show("La cantidad ha retirar no puede ser mas grande de: "+ maxRetirar+" €");
+                MessageBox.Show($"La cantidad ha retirar no puede ser mas grande de: {maxRetirar} €");
                 return;
             }
 
@@ -47,25 +47,25 @@ namespace CajeroAutomatico
 
             if (retiro.RetirosHoyNum >= numMaxRetiros)
             {
-                MessageBox.Show("Has superado el maximo de retiros de hoy: "+ numMaxRetiros);
+                MessageBox.Show($"Has superado el maximo de retiros de hoy: {numMaxRetiros}");
                 return;
             }
                 
             if (cuenta.Contador < cuenta.Transferencias.Length)
             {
-                cuenta.retirarSaldo(cantidadRetirar);
+                cuenta.RetirarSaldo(cantidadRetirar);
                 retiro.RetirosHoyNum++;
-                MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + cuenta.consultarSaldo() + " €");
-                cuenta.Transferencias[cuenta.Contador] = "Retiro: " + cantidadRetirar + " €";
+                MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de {cuenta.ConsultarSaldo()} €");
+                cuenta.Transferencias[cuenta.Contador] = $"Retiro: {cantidadRetirar} €";
                 cuenta.Contador++;
             }
             else
             {
                 cuenta.Contador = 0;
-                cuenta.retirarSaldo(cantidadRetirar);
+                cuenta.RetirarSaldo(cantidadRetirar);
                 retiro.RetirosHoyNum++;
-                MessageBox.Show("La cantidad retirada ha sido de " + cantidadRetirar + " € y el saldo total de la cuenta es de " + cuenta.consultarSaldo() + " €");
-                cuenta.Transferencias[cuenta.Contador] = "Retiro: " + cantidadRetirar + " €";
+                MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de {cuenta.ConsultarSaldo()} €");
+                cuenta.Transferencias[cuenta.Contador] = $"Retiro: {cantidadRetirar} €";
                 cuenta.Contador++;
             }         
         }

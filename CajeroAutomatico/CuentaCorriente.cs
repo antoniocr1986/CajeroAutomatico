@@ -24,12 +24,12 @@ namespace CajeroAutomatico
             Transferencias = new string[5];
         }
 
-        public double consultarSaldo()
+        public double ConsultarSaldo()
         {
             return Saldo;
         }
 
-        public void retirarSaldo(double cantidad)
+        public void RetirarSaldo(double cantidad)
         {
             if (cantidad > 0)
             {
@@ -37,12 +37,12 @@ namespace CajeroAutomatico
             }  
         }
 
-        public void ingresarSaldo( double cantidad)
+        public void IngresarSaldo( double cantidad)
         {
             Saldo += cantidad;
         }
 
-        public long consultarNumCuenta()
+        public long ConsultarNumCuenta()
         {
             return NumCuenta;
         }

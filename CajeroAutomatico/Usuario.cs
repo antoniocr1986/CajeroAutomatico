@@ -19,7 +19,7 @@ namespace CajeroAutomatico
             PIN = pin;
         }
 
-        public bool verificarUsuario(long numTarjeta, int pin)
+        public bool VerificarUsuario(long numTarjeta, int pin)
         {
             return numTarjeta == NumTarjeta && pin == PIN;
         }

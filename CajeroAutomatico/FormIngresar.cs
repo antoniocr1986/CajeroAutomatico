@@ -27,9 +27,9 @@ namespace CajeroAutomatico
             {
                 double cantidadIngresar;
                 cantidadIngresar = double.Parse(textBoxIngresar.Text);
-                Cuenta.ingresarSaldo(cantidadIngresar);
-                MessageBox.Show("La cantidad ingresada ha sido de " + cantidadIngresar + " € y el saldo total de la cuenta es de " + Cuenta.consultarSaldo()+ " €");
-                Cuenta.Transferencias[Cuenta.Contador] = "Ingreso: " + cantidadIngresar+ " €";
+                Cuenta.IngresarSaldo(cantidadIngresar);
+                MessageBox.Show($"La cantidad ingresada ha sido de {cantidadIngresar} € y el saldo total de la cuenta es de {Cuenta.ConsultarSaldo()} €");
+                Cuenta.Transferencias[Cuenta.Contador] = $"Ingreso: {cantidadIngresar} €";
                 Cuenta.Contador++;
             }
             else
@@ -37,9 +37,9 @@ namespace CajeroAutomatico
                 Cuenta.Contador = 0;
                 double cantidadIngresar;
                 cantidadIngresar = double.Parse(textBoxIngresar.Text);
-                Cuenta.ingresarSaldo(cantidadIngresar);
-                MessageBox.Show("La cantidad ingresada ha sido de " + cantidadIngresar + " € y el saldo total de la cuenta es de " + Cuenta.consultarSaldo()+" €");
-                Cuenta.Transferencias[Cuenta.Contador] = "Ingreso: " + cantidadIngresar+ " €";
+                Cuenta.IngresarSaldo(cantidadIngresar);
+                MessageBox.Show($"La cantidad ingresada ha sido de {cantidadIngresar} € y el saldo total de la cuenta es de {Cuenta.ConsultarSaldo()} €");
+                Cuenta.Transferencias[Cuenta.Contador] = $"Ingreso: {cantidadIngresar} €";
                 Cuenta.Contador++;
             }
         }
