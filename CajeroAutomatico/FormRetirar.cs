@@ -26,7 +26,8 @@ namespace CajeroAutomatico
 
         private void ButtonConfirmarRetiro_Click(object sender, EventArgs e)
         {
-            double.TryParse(textBoxRetirar.Text, out double cantidadRetirar);
+            double cantidadRetirar;
+            double.TryParse(textBoxRetirar.Text, out cantidadRetirar);
 
             if (cantidadRetirar > cuenta.ConsultarSaldo())
             {

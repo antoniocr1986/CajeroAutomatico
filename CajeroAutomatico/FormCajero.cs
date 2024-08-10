@@ -66,8 +66,13 @@ namespace CajeroAutomatico
 
         private void ButtonTransferencias_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Las ultimas transferencias son:\n{cuenta.Transferencias[0]}\n{cuenta.Transferencias[1]}\n"+
+            if (cuenta.Transferencias[0] == "")
+            {
+                MessageBox.Show($"Las ultimas transferencias son:\n{cuenta.Transferencias[0]}\n{cuenta.Transferencias[1]}\n" +
                 $"{cuenta.Transferencias[2]}\n{cuenta.Transferencias[3]}\n{cuenta.Transferencias[4]}");
+            }
+            else
+                MessageBox.Show("No hay ninguna transferencia registrada en esta cuenta");
         }
 
         private void ButtonCerrarSesion_Click(object sender, EventArgs e)

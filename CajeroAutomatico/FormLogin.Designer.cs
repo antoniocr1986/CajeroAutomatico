@@ -76,6 +76,7 @@ namespace CajeroAutomatico
             // 
             this.textBoxPIN.Location = new System.Drawing.Point(147, 82);
             this.textBoxPIN.Name = "textBoxPIN";
+            this.textBoxPIN.PasswordChar = '*';
             this.textBoxPIN.Size = new System.Drawing.Size(134, 20);
             this.textBoxPIN.TabIndex = 4;
             // 

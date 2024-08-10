@@ -41,13 +41,17 @@ namespace CajeroAutomatico
 
                 else
                 {
+                    //***A1 Conectar con BD
+                    /*Conexion objetoConexion = new Conexion();
+                    objetoConexion.getConexion();*/
+
                     long numeroTarjetaIngresado = long.Parse(textBoxNumTarjeta.Text);
                     int pinIngresado = int.Parse(textBoxPIN.Text);
                     if (Usuario != null && Usuario.VerificarUsuario(long.Parse(textBoxNumTarjeta.Text),int.Parse(textBoxPIN.Text))
                         || Usuario2 != null && Usuario2.VerificarUsuario(long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxPIN.Text)))
                     {
                         this.Hide();
-                        FormCajero cajero1 = new FormCajero(new Usuario("Antonio", long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxNumTarjeta.Text)),
+                        FormCajero cajero1 = new FormCajero(new Usuario("Antonio", long.Parse(textBoxNumTarjeta.Text), int.Parse(textBoxPIN.Text)),
                             new Usuario("Mario", 0001000100010001, 123456),
                             new CuentaCorriente(20000,1234123412341234,Usuario,12345678),
                             new CuentaCorriente(50, 0001000100010001, Usuario2, 123456),

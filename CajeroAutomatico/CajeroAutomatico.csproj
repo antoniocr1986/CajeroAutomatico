@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.cs" />
     <Compile Include="CuentaCorriente.cs" />
     <Compile Include="FormIngresar.cs">
       <SubType>Form</SubType>
