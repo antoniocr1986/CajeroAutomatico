@@ -60,6 +60,7 @@
             this.textBoxRetirar.Name = "textBoxRetirar";
             this.textBoxRetirar.Size = new System.Drawing.Size(182, 20);
             this.textBoxRetirar.TabIndex = 2;
+            this.textBoxRetirar.TextChanged += new System.EventHandler(this.textBoxRetirar_TextChanged);
             // 
             // FormRetirar
             // 

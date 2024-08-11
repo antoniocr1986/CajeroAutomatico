@@ -29,6 +29,13 @@ namespace CajeroAutomatico
             double cantidadRetirar;
             double.TryParse(textBoxRetirar.Text, out cantidadRetirar);
 
+            if (cantidadRetirar == 0)
+            {
+                MessageBox.Show($"Indique un valor mayor que 0 para retirar saldo de la cuenta." +
+                    "\n\nTOTAL CUENTA: " + cuenta.ConsultarSaldo());
+                return;
+            }
+
             if (cantidadRetirar > cuenta.ConsultarSaldo())
             {
                 MessageBox.Show($"La cantidad no se puede retirar porque es mas grande que el total del saldo de la cuenta." +
@@ -41,6 +48,7 @@ namespace CajeroAutomatico
                 return;
             }
 
+            //Para controlar que los retiros de hoy se pongan a 0 cuando la fecha sea un nuevo dia
             if (DateTime.Now.Date != retiro.Fecha.Date)
             {
                 retiro.RetirosHoyNum = 0;
@@ -65,6 +73,16 @@ namespace CajeroAutomatico
                 cuenta.Contador = 0;
                 this.ButtonConfirmarRetiro_Click(sender, e);
             }         
+        }
+
+        private void textBoxRetirar_TextChanged(object sender, EventArgs e)
+        {
+            // Reemplazar todos los puntos por comas en el texto del TextBox
+            textBoxRetirar.Text = textBoxRetirar.Text.Replace('.', ',');
+
+            // Establecer la posición del cursor al final del texto
+            textBoxRetirar.SelectionStart = textBoxRetirar.Text.Length;
+            textBoxRetirar.SelectionLength = 0;
         }
     }
 }

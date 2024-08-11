@@ -12,18 +12,16 @@ namespace CajeroAutomatico
 {
     public partial class FormCajero : Form
     {
-        private Usuario usuario,usuario2;
-        private CuentaCorriente cuenta,cuenta2;
+        private Usuario usuario;
+        private CuentaCorriente cuenta;
         private Retiro retiro;
 
-        public FormCajero(Usuario usuario, Usuario usuario2, CuentaCorriente cuenta,CuentaCorriente cuenta2, Retiro retiro)
+        public FormCajero(Usuario usuario, CuentaCorriente cuenta, Retiro retiro)
         {
             InitializeComponent();
 
             this.usuario = usuario;
             this.cuenta = cuenta;
-            this.cuenta2 = cuenta2;
-            this.usuario2 = usuario2;
             this.retiro = retiro;
         }
 
@@ -66,7 +64,8 @@ namespace CajeroAutomatico
 
         private void ButtonTransferencias_Click(object sender, EventArgs e)
         {
-            if (cuenta.Transferencias[0] == "")
+            if (!string.IsNullOrWhiteSpace(cuenta.Transferencias[0]))
+
             {
                 MessageBox.Show($"Las ultimas transferencias son:\n{cuenta.Transferencias[0]}\n{cuenta.Transferencias[1]}\n" +
                 $"{cuenta.Transferencias[2]}\n{cuenta.Transferencias[3]}\n{cuenta.Transferencias[4]}");
@@ -78,11 +77,9 @@ namespace CajeroAutomatico
         private void ButtonCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormLogin formLogin = new FormLogin();
-            formLogin.Usuario = usuario;
+            FormLogin formLogin = new FormLogin(usuario);
+            //formLogin.Usuario = usuario;
             formLogin.Cuenta = cuenta;
-            formLogin.Usuario2 = usuario2;
-            formLogin.Cuenta2 = cuenta2;
             formLogin.ShowDialog();
         }
     }

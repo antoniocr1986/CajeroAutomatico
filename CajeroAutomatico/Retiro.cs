@@ -23,6 +23,7 @@ namespace CajeroAutomatico
         {
             Fecha = fecha;
             ValorRetiro = valorRetiro;
+            RetirosHoyNum = 0;
         }
     }
 }

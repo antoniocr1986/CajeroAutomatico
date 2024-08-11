@@ -9,19 +9,19 @@ namespace CajeroAutomatico
     public class Usuario
     {
         public string Nombre { get;set; }
-        public long NumTarjeta { get; set; }
+        public string Identificacion { get; set; }
         public int PIN { get; set; }
 
-        public Usuario(string nombre, long numTarjeta, int pin)
+        public Usuario(string nombre, string identificacion, int pin)
         {
             Nombre = nombre;
-            NumTarjeta = numTarjeta;
+            Identificacion = identificacion;
             PIN = pin;
         }
 
-        public bool VerificarUsuario(long numTarjeta, int pin)
+        public bool VerificarUsuario(string identificacion, int pin)
         {
-            return numTarjeta == NumTarjeta && pin == PIN;
+            return identificacion == Identificacion && pin == PIN;
         }
     }
 }

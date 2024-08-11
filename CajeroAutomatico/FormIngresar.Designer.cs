@@ -50,6 +50,7 @@
             this.textBoxIngresar.Name = "textBoxIngresar";
             this.textBoxIngresar.Size = new System.Drawing.Size(153, 20);
             this.textBoxIngresar.TabIndex = 1;
+            this.textBoxIngresar.TextChanged += new System.EventHandler(this.textBoxIngresar_TextChanged);
             // 
             // labelIngreso
             // 

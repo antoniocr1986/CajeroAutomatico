@@ -29,32 +29,32 @@ namespace CajeroAutomatico
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonComprobar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.buttonEntrar = new System.Windows.Forms.Button();
+            this.label_Identificacion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxNumTarjeta = new System.Windows.Forms.TextBox();
+            this.textBoxIdentificacion = new System.Windows.Forms.TextBox();
             this.textBoxPIN = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // buttonComprobar
+            // buttonEntrar
             // 
-            this.buttonComprobar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonComprobar.Location = new System.Drawing.Point(106, 132);
-            this.buttonComprobar.Name = "buttonComprobar";
-            this.buttonComprobar.Size = new System.Drawing.Size(96, 35);
-            this.buttonComprobar.TabIndex = 0;
-            this.buttonComprobar.Text = "ENTRAR";
-            this.buttonComprobar.UseVisualStyleBackColor = true;
-            this.buttonComprobar.Click += new System.EventHandler(this.ButtonComprobar_Click);
+            this.buttonEntrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEntrar.Location = new System.Drawing.Point(106, 132);
+            this.buttonEntrar.Name = "buttonEntrar";
+            this.buttonEntrar.Size = new System.Drawing.Size(96, 35);
+            this.buttonEntrar.TabIndex = 0;
+            this.buttonEntrar.Text = "ENTRAR";
+            this.buttonEntrar.UseVisualStyleBackColor = true;
+            this.buttonEntrar.Click += new System.EventHandler(this.ButtonComprobar_Click);
             // 
-            // label1
+            // label_Identificacion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Numero Tarjeta";
+            this.label_Identificacion.AutoSize = true;
+            this.label_Identificacion.Location = new System.Drawing.Point(27, 43);
+            this.label_Identificacion.Name = "label_Identificacion";
+            this.label_Identificacion.Size = new System.Drawing.Size(70, 13);
+            this.label_Identificacion.TabIndex = 1;
+            this.label_Identificacion.Text = "Identificacion";
             // 
             // label2
             // 
@@ -65,12 +65,12 @@ namespace CajeroAutomatico
             this.label2.TabIndex = 2;
             this.label2.Text = "PIN";
             // 
-            // textBoxNumTarjeta
+            // textBoxIdentificacion
             // 
-            this.textBoxNumTarjeta.Location = new System.Drawing.Point(147, 36);
-            this.textBoxNumTarjeta.Name = "textBoxNumTarjeta";
-            this.textBoxNumTarjeta.Size = new System.Drawing.Size(134, 20);
-            this.textBoxNumTarjeta.TabIndex = 3;
+            this.textBoxIdentificacion.Location = new System.Drawing.Point(147, 36);
+            this.textBoxIdentificacion.Name = "textBoxIdentificacion";
+            this.textBoxIdentificacion.Size = new System.Drawing.Size(134, 20);
+            this.textBoxIdentificacion.TabIndex = 3;
             // 
             // textBoxPIN
             // 
@@ -87,10 +87,10 @@ namespace CajeroAutomatico
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(308, 194);
             this.Controls.Add(this.textBoxPIN);
-            this.Controls.Add(this.textBoxNumTarjeta);
+            this.Controls.Add(this.textBoxIdentificacion);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonComprobar);
+            this.Controls.Add(this.label_Identificacion);
+            this.Controls.Add(this.buttonEntrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximumSize = new System.Drawing.Size(820, 500);
             this.Name = "FormLogin";
@@ -103,10 +103,10 @@ namespace CajeroAutomatico
 
         #endregion
 
-        private System.Windows.Forms.Button buttonComprobar;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonEntrar;
+        private System.Windows.Forms.Label label_Identificacion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxNumTarjeta;
+        private System.Windows.Forms.TextBox textBoxIdentificacion;
         private System.Windows.Forms.TextBox textBoxPIN;
     }
 }

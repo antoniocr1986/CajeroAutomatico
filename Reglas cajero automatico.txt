@@ -1,14 +1,20 @@
 CAJERO ELECTRONICO V1.0
 ------------------------------------------------------------------------------------
 
--Verificar usuario pidiendo el PIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--Si la verificacion es negativa no dejar acceder al usuario. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--Si la verificacion es positiva mostrar varias opciones como disponibilidad de efectivo, cinco transacciones recientes y retirada de efectivo.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
--Dar la posibilidad de retirar hasta 1000 € en efectivo en cada transaccion hasta un total de transacciones limite de 10 al dia (comprobar que el retire es menor que el saldo disponible).!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+HECHO
+-Verificar usuario pidiendo el PIN
+-Si la verificacion es negativa no dejar acceder al usuario.
+-Si la verificacion es positiva mostrar varias opciones como disponibilidad de efectivo, cinco transacciones recientes y retirada de efectivo.
+-Dar la posibilidad de retirar hasta 1000 € en efectivo en cada transaccion hasta un total de transacciones limite de 10 al dia (comprobar que el retire es menor que el saldo disponible).
 -Implementar ver transferencias.
--Comprobar si num tarjeta se ha grabado correctamente
 -Comprobar al cerrar sesion que el nuevo CajeroLoginForm se crea correctamente pasandole los datos de los usuarios y pins.
+-Comprobar si num tarjeta se ha grabado correctamente
+
+-Mandar mensaje de advertencia cuando intentemos ingresar o retirar 0 €
+-Cambiar los textBox de ingresar y retirar para que cuando intentemos escribir un . escriba siempre una , para poder trabajar con decimales correctamente como se hace en España usando comas en lugar de puntos.
+-Modificar NumTarjeta en login por identificación string.
+
+TODO
 
 
 AMPLICACION MAS COMPLICADA (MAS ADELANTE) V2.0
