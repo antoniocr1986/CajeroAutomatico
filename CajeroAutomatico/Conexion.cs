@@ -11,20 +11,20 @@ namespace CajeroAutomatico
     {
         SqlConnection cconex = new SqlConnection();
 
-        private string connectionString = "Data Source="+ servidor+ ","+puerto+";"+"user id="+ usuario+";"+ "password=" + password + ";" + "Initial Catalog=" + bd +";"+ "Persist Security Info=true";
-
         static string servidor ="localhost";
         static string bd ="CajeroAutomatico";
         static string usuario ="sa";
-        static string password ="Contrasena1986";
+        static string password ="12345678";
         static string puerto= "1433";
+
+        private string connectionString = "Data Source=" + servidor + "," + puerto + ";" + "User ID=" + usuario + ";" + "Password=" + password + ";" + "Initial Catalog=" + bd + ";" + "Persist Security Info=true";
 
         public SqlConnection getConexion()
         {
             try {
                 cconex.ConnectionString = connectionString;
                 cconex.Open();
-                MessageBox.Show("Se conecto correctamente a la Base de Datos");
+                //MessageBox.Show("Se conecto correctamente a la Base de Datos");
             }
             catch(SqlException e)
             {
@@ -40,10 +40,10 @@ namespace CajeroAutomatico
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Tarjetas (NumeroTarjeta) VALUES (@NumeroTarjeta)";
+                string query = "INSERT INTO Tarjetas (Identificacion) VALUES (@Identificacion)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@NumeroTarjeta", numeroTarjeta);
+                    command.Parameters.AddWithValue("@Identificacion", numeroTarjeta);
                     command.ExecuteNonQuery();
                 }
             }
@@ -70,7 +70,7 @@ namespace CajeroAutomatico
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT NumeroTarjeta FROM Tarjetas";
+                string query = "SELECT Identificacion FROM Tarjetas";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())

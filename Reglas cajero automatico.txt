@@ -15,7 +15,7 @@ HECHO
 -Modificar NumTarjeta en login por identificación string.
 
 TODO
-
+-Conectar programa con base de datos que contenga los usuarios y las cuentas
 
 AMPLICACION MAS COMPLICADA (MAS ADELANTE) V2.0
 -------------------------------------------------------------------------------------
