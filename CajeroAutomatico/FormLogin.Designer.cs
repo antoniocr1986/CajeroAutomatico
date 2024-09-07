@@ -29,6 +29,7 @@ namespace CajeroAutomatico
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.buttonEntrar = new System.Windows.Forms.Button();
             this.label_Identificacion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -92,6 +93,7 @@ namespace CajeroAutomatico
             this.Controls.Add(this.label_Identificacion);
             this.Controls.Add(this.buttonEntrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(820, 500);
             this.Name = "FormLogin";
             this.Text = "CAJERO AUTOMATICO: LOGIN";

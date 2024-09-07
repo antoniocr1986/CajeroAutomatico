@@ -1,0 +1,11 @@
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\bin\Release\CajeroAutomatico.exe.config
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\bin\Release\CajeroAutomatico.exe
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\bin\Release\CajeroAutomatico.pdb
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.FormIngresar.resources
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.FormLogin.resources
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.FormCajero.resources
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.FormRetirar.resources
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.Properties.Resources.resources
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.csproj.GenerateResource.Cache
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.exe
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Release\CajeroAutomatico.pdb

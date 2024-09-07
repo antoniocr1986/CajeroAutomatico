@@ -13,8 +13,6 @@ HECHO
 -Mandar mensaje de advertencia cuando intentemos ingresar o retirar 0 €
 -Cambiar los textBox de ingresar y retirar para que cuando intentemos escribir un . escriba siempre una , para poder trabajar con decimales correctamente como se hace en España usando comas en lugar de puntos.
 -Modificar NumTarjeta en login por identificación string.
-
-TODO
 -Conectar programa con base de datos que contenga los usuarios y las cuentas
 
 AMPLICACION MAS COMPLICADA (MAS ADELANTE) V2.0
