@@ -12,12 +12,27 @@ namespace CajeroAutomatico
 {
     public partial class FormIngresar : Form
     {
+        BdDML bdDMl = new BdDML();
+
         private CuentaCorriente Cuenta;
 
-        public FormIngresar(CuentaCorriente cuenta)
+        private double CuentaSaldo;
+        private long NumCuenta;
+        private string CuentaUsuario;
+        private int CuentaPin;
+        private string CuentaIdentificacion;
+        private int CuentaContador;
+
+        public FormIngresar(double cuentaSaldo, long cuentaNumCuenta, string cuentaUsuario, int cuentaPin, string cuentaIdentificacion, int cuentaContador)
         {
             InitializeComponent();
-            Cuenta = cuenta;    
+
+            CuentaSaldo = cuentaSaldo;
+            NumCuenta = cuentaNumCuenta;
+            CuentaUsuario = cuentaUsuario;
+            CuentaPin = cuentaPin;
+            CuentaIdentificacion = cuentaIdentificacion;
+            CuentaContador = cuentaContador;
         }
 
         private void ButtonConfirmar_Click(object sender, EventArgs e)
@@ -30,16 +45,16 @@ namespace CajeroAutomatico
                 MessageBox.Show($"La cantidad ingresada no puede ser de 0 €");
             }
 
-            else if (Cuenta.Contador < Cuenta.Transferencias.Length)
+            else if (CuentaContador < Cuenta.Transferencias.Length)
             {            
                 Cuenta.IngresarSaldo(cantidadIngresar);
                 MessageBox.Show($"La cantidad ingresada ha sido de {cantidadIngresar} € y el saldo total de la cuenta es de {Cuenta.ConsultarSaldo()} €");
-                Cuenta.Transferencias[Cuenta.Contador] = $"Ingreso: {cantidadIngresar} €";
-                Cuenta.Contador++;
+                Cuenta.Transferencias[CuentaContador] = $"Ingreso: {cantidadIngresar} €";
+                CuentaContador++;
             }
             else
             {
-                Cuenta.Contador = 0;
+                CuentaContador = 0;
                 this.ButtonConfirmar_Click(sender,e);
             }
         }

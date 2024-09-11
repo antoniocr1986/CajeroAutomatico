@@ -81,7 +81,7 @@ namespace CajeroAutomatico
             this.textBoxPIN.PasswordChar = '*';
             this.textBoxPIN.Size = new System.Drawing.Size(134, 20);
             this.textBoxPIN.TabIndex = 4;
-            this.textBoxPIN.Text = "12344321";
+            this.textBoxPIN.Text = "1755";
             // 
             // FormLogin
             // 

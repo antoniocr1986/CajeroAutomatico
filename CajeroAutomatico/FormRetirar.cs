@@ -12,15 +12,24 @@ namespace CajeroAutomatico
 {
     public partial class FormRetirar : Form
     {
+        BdDML bdDMl = new BdDML();
+
         private CuentaCorriente cuenta;
+        private double CuentaSaldo;
+        private long NumCuenta;
+        private string CuentaUsuario;
+        private int CuentaPin;
+        private string CuentaIdentificacion;
+        private int CuentaContador;
+
         private Retiro retiro;
         private readonly int maxRetirar = 1000;
         private readonly int numMaxRetiros = 10;
 
-        public FormRetirar(CuentaCorriente cuenta,Retiro retiro)
+        public FormRetirar(string cuentaIdentificacion,Retiro retiro)
         {
             InitializeComponent();
-            this.cuenta = cuenta;
+            CuentaIdentificacion = cuentaIdentificacion;
             this.retiro = retiro;
         }
 
@@ -29,17 +38,19 @@ namespace CajeroAutomatico
             double cantidadRetirar;
             double.TryParse(textBoxRetirar.Text, out cantidadRetirar);
 
+            CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
+            
             if (cantidadRetirar == 0)
             {
                 MessageBox.Show($"Indique un valor mayor que 0 para retirar saldo de la cuenta." +
-                    "\n\nTOTAL CUENTA: " + cuenta.ConsultarSaldo());
+                    "\n\nTOTAL CUENTA: " + CuentaSaldo);
                 return;
             }
 
             if (cantidadRetirar > cuenta.ConsultarSaldo())
             {
                 MessageBox.Show($"La cantidad no se puede retirar porque es mas grande que el total del saldo de la cuenta." +
-                    "\n\nTOTAL CUENTA: " +cuenta.ConsultarSaldo());
+                    "\n\nTOTAL CUENTA: " + CuentaSaldo);
                 return;
             }
             if (cantidadRetirar > maxRetirar)

@@ -71,13 +71,10 @@ namespace CajeroAutomatico
                     comando.Parameters.AddWithValue("@identificacion", numeroIdentificacionIngresado);
                     comando.Parameters.AddWithValue("@pin", pinIngresado);
 
-                    MessageBox.Show("paso 1");
-
                     int count = (int)comando.ExecuteScalar(); // Retorna el número de coincidencias
 
                     if (count > 0)
                     {
-                        MessageBox.Show("paso 2");
                         // Usuario y PIN son correctos
                         this.Hide();
 
@@ -90,10 +87,10 @@ namespace CajeroAutomatico
                         FormCajero cajero1 = new FormCajero(numeroIdentificacionIngresado);
                         cajero1.Show();
 
-                        MessageBox.Show("paso 3");
-                        MessageBox.Show("Usuario = " + Usuario);
-                        MessageBox.Show("Cuenta = " + cuenta);
-                        MessageBox.Show("Retiro = " + Retiro);
+                        MessageBox.Show("Creando FormCajero"+
+                            "\nUsuario = " + cuenta.Identificacion+
+                            "\nCuenta = " + cuenta+
+                            "\nRetiro = " + Retiro);
                     }
                     else
                     {
@@ -124,30 +121,27 @@ namespace CajeroAutomatico
 
             try
             {
-                MessageBox.Show("paso 1b");
                 // Crear el comando SQL
                 SqlCommand command = new SqlCommand(query, conexion);
                 command.Parameters.AddWithValue("@Pin", pin);
 
-                MessageBox.Show("paso 2b");
                 // Ejecutar la consulta
                 SqlDataReader reader = command.ExecuteReader();
 
                 // Leer los resultados
                 if (reader != null && reader.Read())
                 {
-                    MessageBox.Show("paso 3b");
                     cuenta.Saldo = reader.GetDouble(reader.GetOrdinal("saldo"));
                     cuenta.Identificacion = reader.GetString(reader.GetOrdinal("identificacion"));
                     cuenta.PIN = reader.GetInt32(reader.GetOrdinal("pin"));
                     cuenta.NumCuenta = reader.GetInt64(reader.GetOrdinal("numCuenta"));
-                    MessageBox.Show("paso 4b");
 
                     // Aquí ya tienes los datos en la propiedad de cuenta
-                    MessageBox.Show("Saldo: " + cuenta.Saldo);
-                    MessageBox.Show("Usuario: " + cuenta.Identificacion);
-                    MessageBox.Show("PIN: " + cuenta.PIN);
-                    MessageBox.Show("NumCuenta: " + cuenta.NumCuenta);
+                    MessageBox.Show("ComprobarCuentaUsuario BD"+
+                        "\nSaldo: " + cuenta.Saldo+
+                        "\nUsuario: " + cuenta.Identificacion+
+                        "\nPIN: " + cuenta.PIN+
+                        "\nNumCuenta: " + cuenta.NumCuenta);
                 }
                 else
                 {

@@ -104,6 +104,7 @@
             this.Controls.Add(this.textBoxNuevoPIN);
             this.Name = "FormCambioPIN";
             this.Text = "FormCambioPIN";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCambioPIN_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

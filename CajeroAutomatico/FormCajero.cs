@@ -13,12 +13,15 @@ namespace CajeroAutomatico
 {
     public partial class FormCajero : Form
     {
+        BdDML bdDMl = new BdDML();
+
         private CuentaCorriente cuenta;
-        private double cuentaSaldo;
-        private long numCuenta;
-        private string cuentaUsuario;
-        private int cuentaPin;
-        private string cuentaIdentificacion;
+        private float CuentaSaldo;
+        private long CuentaNumCuenta;
+        private string CuentaUsuario;
+        private int CuentaPin;
+        private string CuentaIdentificacion;
+        private int CuentaContador;
 
         private Retiro retiro;
         public Conexion objetoConexion;
@@ -27,7 +30,7 @@ namespace CajeroAutomatico
         {
             InitializeComponent();
 
-            cuentaIdentificacion = identificacion;
+            CuentaIdentificacion = identificacion;
         }
 
         private void FormCajero_Load(object sender, EventArgs e)
@@ -36,24 +39,26 @@ namespace CajeroAutomatico
 
         private void ButtonConsultaSaldo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"El saldo total de su cuenta es: {cuentaSaldo} €");
+            CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
+            MessageBox.Show($"El saldo total de su cuenta es: {CuentaSaldo} €");
         }
 
         private void ButtonRetirarSaldo_Click(object sender, EventArgs e)
         {
-            FormRetirar retirar = new FormRetirar(cuenta,retiro);
+            FormRetirar retirar = new FormRetirar(CuentaIdentificacion, retiro);
             retirar.ShowDialog();
         }
 
         private void ButtonIngresarSaldo_Click(object sender, EventArgs e)
         {
-            FormIngresar ingresar = new FormIngresar(cuenta);
+            FormIngresar ingresar = new FormIngresar(CuentaSaldo, CuentaNumCuenta, CuentaUsuario, CuentaPin, CuentaIdentificacion, CuentaContador);
             ingresar.ShowDialog();  
         }
 
         private void ButtonVerNumCuenta_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("El numero de cuenta es "+numCuenta);
+            CuentaNumCuenta = bdDMl.ConsultaNumCuenta(CuentaIdentificacion);
+            MessageBox.Show("El numero de cuenta es "+ CuentaNumCuenta);
         }
 
         private void FormCajero_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,8 +91,7 @@ namespace CajeroAutomatico
 
         private void buttonCambiarPIN_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormCambioPIN formPIN= new FormCambioPIN(cuentaIdentificacion);
+            FormCambioPIN formPIN= new FormCambioPIN(CuentaIdentificacion);
             formPIN.ShowDialog();
         }
 
@@ -100,12 +104,10 @@ namespace CajeroAutomatico
                 objetoConexion = new Conexion();
                 using (SqlConnection conexion = objetoConexion.getConexion())
                 {
-                    MessageBox.Show("paso 1b");
                     // Crear el comando SQL
                     SqlCommand command = new SqlCommand(query, conexion);
-                    command.Parameters.AddWithValue("@identificacion", cuentaIdentificacion);
+                    command.Parameters.AddWithValue("@identificacion", CuentaIdentificacion);
 
-                    MessageBox.Show("paso 2b");
                     // Ejecutar la consulta
                     SqlDataReader reader = command.ExecuteReader();
 

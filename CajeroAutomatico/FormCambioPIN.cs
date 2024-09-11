@@ -60,12 +60,11 @@ namespace CajeroAutomatico
                         int rowsAffected = command.ExecuteNonQuery();
 
                         // Informar al usuario sobre el resultado
-                        Console.WriteLine($"{rowsAffected} fila(s) actualizada(s).");
+                        MessageBox.Show($"{rowsAffected} fila(s) actualizada(s).");
                     }
                     catch (Exception ex)
                     {
-                        // Manejo de excepciones
-                        Console.WriteLine("Error al actualizar la base de datos: " + ex.Message);
+                        MessageBox.Show("Error al actualizar la base de datos: " + ex.Message);
                     }
                 }
 
@@ -81,13 +80,11 @@ namespace CajeroAutomatico
                         // Ejecutar la consulta
                         int rowsAffected = command.ExecuteNonQuery();
 
-                        // Informar al usuario sobre el resultado
-                        Console.WriteLine($"{rowsAffected} fila(s) actualizada(s).");
+                        MessageBox.Show($"{rowsAffected} fila(s) actualizada(s).");
                     }
                     catch (Exception ex)
                     {
-                        // Manejo de excepciones
-                        Console.WriteLine("Error al actualizar la base de datos: " + ex.Message);
+                        MessageBox.Show("Error al actualizar la base de datos: " + ex.Message);
                     }
                 }
             }
@@ -105,6 +102,11 @@ namespace CajeroAutomatico
                 textBoxNuevoPIN.PasswordChar = '*';
                 textBoxNuevoPINbis.PasswordChar = '*';
             }
+        }
+
+        private void FormCambioPIN_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
         }
     }
 }
