@@ -14,7 +14,7 @@ namespace CajeroAutomatico
     public partial class FormLogin : Form
     {
         public Usuario Usuario {get;set;}
-        public CuentaCorriente Cuenta { get; set; }
+        // CuentaCorriente Cuenta { get; set; }
 
 
         public Retiro Retiro { get; set; }

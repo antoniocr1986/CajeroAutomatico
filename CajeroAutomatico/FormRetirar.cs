@@ -14,13 +14,13 @@ namespace CajeroAutomatico
     {
         BdDML bdDMl = new BdDML();
 
-        private CuentaCorriente cuenta;
         private double CuentaSaldo;
         private long NumCuenta;
         private string CuentaUsuario;
         private int CuentaPin;
         private string CuentaIdentificacion;
         private int CuentaContador;
+        private string[] CuentaTransferencias;
 
         private Retiro retiro;
         private readonly int maxRetirar = 1000;
@@ -61,7 +61,7 @@ namespace CajeroAutomatico
             }
 
             //Para controlar que los retiros de hoy se pongan a 0 cuando la fecha sea un nuevo dia
-            if (DateTime.Now.Date != retiro.Fecha.Date)
+            /*if (DateTime.Now.Date != retiro.Fecha.Date)
             {
                 retiro.RetirosHoyNum = 0;
             }
@@ -70,21 +70,22 @@ namespace CajeroAutomatico
             {
                 MessageBox.Show($"Has superado el maximo de retiros de hoy: {numMaxRetiros}");
                 return;
-            }
+            }*/
                 
-            if (cuenta.Contador < cuenta.Transferencias.Length)
-            {
+            //if (CuentaContador < CuentaTransferencias.Length)
+            //{
                 bdDMl.RetirarSaldo(cantidadRetirar, CuentaIdentificacion);
-                retiro.RetirosHoyNum++;
-                MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de {cuenta.ConsultarSaldo()} €");
-                cuenta.Transferencias[cuenta.Contador] = $"Retiro: {cantidadRetirar} €";
-                cuenta.Contador++;
-            }
-            else
+                //retiro.RetirosHoyNum++;
+                CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
+                MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de { CuentaSaldo } €");
+                CuentaTransferencias[CuentaContador] = $"Retiro: {cantidadRetirar} €";
+                CuentaContador++;
+            //}
+            /*else
             {
-                cuenta.Contador = 0;
+                CuentaContador = 0;
                 this.ButtonConfirmarRetiro_Click(sender, e);
-            }         
+            }*/         
         }
 
         private void textBoxRetirar_TextChanged(object sender, EventArgs e)

@@ -15,7 +15,6 @@ namespace CajeroAutomatico
     {
         BdDML bdDMl = new BdDML();
 
-        private CuentaCorriente cuenta;
         private float CuentaSaldo;
         private long CuentaNumCuenta;
         private string CuentaUsuario;
@@ -95,7 +94,6 @@ namespace CajeroAutomatico
         {
             this.Hide();
             FormLogin formLogin = new FormLogin();
-            formLogin.Cuenta.Transferencias = Transferencias;
             formLogin.ShowDialog();
         }
 

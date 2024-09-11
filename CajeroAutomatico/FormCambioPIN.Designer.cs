@@ -102,6 +102,7 @@
             this.Controls.Add(this.lblNuevoPIN);
             this.Controls.Add(this.textBoxNuevoPINbis);
             this.Controls.Add(this.textBoxNuevoPIN);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormCambioPIN";
             this.Text = "FormCambioPIN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCambioPIN_FormClosing);

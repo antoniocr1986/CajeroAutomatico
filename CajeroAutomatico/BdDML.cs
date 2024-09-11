@@ -93,6 +93,7 @@ namespace CajeroAutomatico
                 {
                     SqlCommand command = new SqlCommand(query, conexion);
                     command.Parameters.AddWithValue("@identificacion", identificacion);
+                    command.Parameters.AddWithValue("@Cantidad", cantidad);
 
                     SqlDataReader reader = command.ExecuteReader();
 

@@ -14,8 +14,6 @@ namespace CajeroAutomatico
     {
         BdDML bdDMl = new BdDML();
 
-        private CuentaCorriente Cuenta;
-
         private double CuentaSaldo;
         private long NumCuenta;
         private string CuentaUsuario;
