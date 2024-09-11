@@ -16,7 +16,16 @@ namespace CajeroAutomatico
         public Usuario Usuario {get;set;}
         public CuentaCorriente Cuenta { get; set; }
 
+
         public Retiro Retiro { get; set; }
+
+        Conexion objetoConexion = new Conexion();
+
+        public FormLogin()
+        {
+            InitializeComponent();
+            this.Retiro = new Retiro();
+        }
 
         public FormLogin(Usuario usuario)
         {
@@ -24,7 +33,6 @@ namespace CajeroAutomatico
 
             this.Retiro = new Retiro();
             this.Usuario = usuario;
-            FormCajero cajero1 = new FormCajero(this.Usuario, this.Cuenta, this.Retiro);
         }
 
         private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -53,19 +61,8 @@ namespace CajeroAutomatico
                     return;
                 }
 
-                //Comprobamos si el usuario se conecta con el usuario creado en la clase Program.cs para 
-                //trabajar sin base de datos '53313513L' y '12345678'
-                if (textBoxIdentificacion.Text == Usuario.Identificacion && int.Parse(textBoxPIN.Text) == Usuario.PIN)
-                {
-                    MessageBox.Show("Te has logueado con un usuario intento del codigo de la aplicación");
-                    this.Hide();
-                    FormCajero cajero1 = new FormCajero(Usuario, Cuenta, Retiro);
-                    cajero1.Show();
-                    return;
-                }
-
                 //***A1 Conectar con BD
-                Conexion objetoConexion = new Conexion();
+                objetoConexion = new Conexion();
                 using (SqlConnection conexion = objetoConexion.getConexion())
                 {
                     // *** A2: Verificar usuario en la base de datos
@@ -74,14 +71,29 @@ namespace CajeroAutomatico
                     comando.Parameters.AddWithValue("@identificacion", numeroIdentificacionIngresado);
                     comando.Parameters.AddWithValue("@pin", pinIngresado);
 
+                    MessageBox.Show("paso 1");
+
                     int count = (int)comando.ExecuteScalar(); // Retorna el número de coincidencias
 
                     if (count > 0)
                     {
+                        MessageBox.Show("paso 2");
                         // Usuario y PIN son correctos
                         this.Hide();
-                        FormCajero cajero1 = new FormCajero(Usuario, Cuenta, Retiro);
+
+                        CuentaCorriente cuenta = new CuentaCorriente();
+
+                        comprobarCuentaUsuarioBD(conexion, cuenta, pinIngresado);
+                       
+
+                        /*FormCajero cajero1 = new FormCajero(Usuario, cuenta, Retiro);*/
+                        FormCajero cajero1 = new FormCajero(numeroIdentificacionIngresado);
                         cajero1.Show();
+
+                        MessageBox.Show("paso 3");
+                        MessageBox.Show("Usuario = " + Usuario);
+                        MessageBox.Show("Cuenta = " + cuenta);
+                        MessageBox.Show("Retiro = " + Retiro);
                     }
                     else
                     {
@@ -103,6 +115,50 @@ namespace CajeroAutomatico
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo un error: " + ex.Message);
+            }
+        }
+
+        public void comprobarCuentaUsuarioBD(SqlConnection conexion, CuentaCorriente cuenta, int pin)
+        {
+            string query = "SELECT saldo, numCuenta, usuario, pin, identificacion FROM CuentaCorriente WHERE pin = @Pin";
+
+            try
+            {
+                MessageBox.Show("paso 1b");
+                // Crear el comando SQL
+                SqlCommand command = new SqlCommand(query, conexion);
+                command.Parameters.AddWithValue("@Pin", pin);
+
+                MessageBox.Show("paso 2b");
+                // Ejecutar la consulta
+                SqlDataReader reader = command.ExecuteReader();
+
+                // Leer los resultados
+                if (reader != null && reader.Read())
+                {
+                    MessageBox.Show("paso 3b");
+                    cuenta.Saldo = reader.GetDouble(reader.GetOrdinal("saldo"));
+                    cuenta.Identificacion = reader.GetString(reader.GetOrdinal("identificacion"));
+                    cuenta.PIN = reader.GetInt32(reader.GetOrdinal("pin"));
+                    cuenta.NumCuenta = reader.GetInt64(reader.GetOrdinal("numCuenta"));
+                    MessageBox.Show("paso 4b");
+
+                    // Aquí ya tienes los datos en la propiedad de cuenta
+                    MessageBox.Show("Saldo: " + cuenta.Saldo);
+                    MessageBox.Show("Usuario: " + cuenta.Identificacion);
+                    MessageBox.Show("PIN: " + cuenta.PIN);
+                    MessageBox.Show("NumCuenta: " + cuenta.NumCuenta);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró la cuenta.");
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }

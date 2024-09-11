@@ -37,3 +37,5 @@ C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\o
 C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.csproj.GenerateResource.Cache
 C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\bin\Debug\CajeroAutomatico.exe
 C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\bin\Debug\CajeroAutomatico.pdb
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.FormCambioPIN.resources
+C:\Users\anton\OneDrive\Escritorio\Git julio\CajeroAutomatico\CajeroAutomatico\obj\Debug\CajeroAutomatico.csprojResolveAssemblyReference.cache

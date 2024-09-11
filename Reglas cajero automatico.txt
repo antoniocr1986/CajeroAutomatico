@@ -14,7 +14,10 @@ HECHO
 -Cambiar los textBox de ingresar y retirar para que cuando intentemos escribir un . escriba siempre una , para poder trabajar con decimales correctamente como se hace en España usando comas en lugar de puntos.
 -Modificar NumTarjeta en login por identificación string.
 -Conectar programa con base de datos que contenga los usuarios y las cuentas
+-Cambiados icono de formulario y ensamblado
 
 AMPLICACION MAS COMPLICADA (MAS ADELANTE) V2.0
 -------------------------------------------------------------------------------------
--Posibilidad de registrar nuevo PIN y numero de telefono, un estado de cuenta detallado y un sistema rápido de retirada de efectivo (20,50, 100 € etc)
+-Posibilidad de registrar nuevo PIN, revisar porque el usuario de los forms es siempre el 53313513L creado al inicio de la aplicación.
+
+-Posibilidad de registrar  numero de telefono, un estado de cuenta detallado y un sistema rápido de retirada de efectivo (20,50, 100 € etc)

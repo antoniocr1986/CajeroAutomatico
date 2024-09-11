@@ -35,6 +35,7 @@ namespace CajeroAutomatico
             this.buttonTransferencias = new System.Windows.Forms.Button();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
             this.buttonIngresarSaldo = new System.Windows.Forms.Button();
+            this.buttonCambiarPIN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonConsultaSaldo
@@ -97,12 +98,23 @@ namespace CajeroAutomatico
             this.buttonIngresarSaldo.UseVisualStyleBackColor = true;
             this.buttonIngresarSaldo.Click += new System.EventHandler(this.ButtonIngresarSaldo_Click);
             // 
+            // buttonCambiarPIN
+            // 
+            this.buttonCambiarPIN.Location = new System.Drawing.Point(140, 214);
+            this.buttonCambiarPIN.Name = "buttonCambiarPIN";
+            this.buttonCambiarPIN.Size = new System.Drawing.Size(127, 23);
+            this.buttonCambiarPIN.TabIndex = 6;
+            this.buttonCambiarPIN.Text = "Cambiar PIN";
+            this.buttonCambiarPIN.UseVisualStyleBackColor = true;
+            this.buttonCambiarPIN.Click += new System.EventHandler(this.buttonCambiarPIN_Click);
+            // 
             // FormCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(415, 216);
+            this.ClientSize = new System.Drawing.Size(415, 271);
+            this.Controls.Add(this.buttonCambiarPIN);
             this.Controls.Add(this.buttonIngresarSaldo);
             this.Controls.Add(this.buttonCerrarSesion);
             this.Controls.Add(this.buttonTransferencias);
@@ -126,5 +138,6 @@ namespace CajeroAutomatico
         private System.Windows.Forms.Button buttonTransferencias;
         private System.Windows.Forms.Button buttonCerrarSesion;
         private System.Windows.Forms.Button buttonIngresarSaldo;
+        private System.Windows.Forms.Button buttonCambiarPIN;
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,17 +13,21 @@ namespace CajeroAutomatico
 {
     public partial class FormCajero : Form
     {
-        private Usuario usuario;
         private CuentaCorriente cuenta;
-        private Retiro retiro;
+        private double cuentaSaldo;
+        private long numCuenta;
+        private string cuentaUsuario;
+        private int cuentaPin;
+        private string cuentaIdentificacion;
 
-        public FormCajero(Usuario usuario, CuentaCorriente cuenta, Retiro retiro)
+        private Retiro retiro;
+        public Conexion objetoConexion;
+
+        public FormCajero(string identificacion)
         {
             InitializeComponent();
 
-            this.usuario = usuario;
-            this.cuenta = cuenta;
-            this.retiro = retiro;
+            cuentaIdentificacion = identificacion;
         }
 
         private void FormCajero_Load(object sender, EventArgs e)
@@ -31,8 +36,7 @@ namespace CajeroAutomatico
 
         private void ButtonConsultaSaldo_Click(object sender, EventArgs e)
         {
-            double saldoTotal = cuenta.ConsultarSaldo();
-            MessageBox.Show($"El saldo total de su cuenta es: {saldoTotal} €");
+            MessageBox.Show($"El saldo total de su cuenta es: {cuentaSaldo} €");
         }
 
         private void ButtonRetirarSaldo_Click(object sender, EventArgs e)
@@ -49,8 +53,6 @@ namespace CajeroAutomatico
 
         private void ButtonVerNumCuenta_Click(object sender, EventArgs e)
         {
-            long numCuenta = 0;
-            numCuenta = cuenta.ConsultarNumCuenta();
             MessageBox.Show("El numero de cuenta es "+numCuenta);
         }
 
@@ -77,10 +79,50 @@ namespace CajeroAutomatico
         private void ButtonCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FormLogin formLogin = new FormLogin(usuario);
-            //formLogin.Usuario = usuario;
+            FormLogin formLogin = new FormLogin();
             formLogin.Cuenta = cuenta;
             formLogin.ShowDialog();
+        }
+
+        private void buttonCambiarPIN_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormCambioPIN formPIN= new FormCambioPIN(cuentaIdentificacion);
+            formPIN.ShowDialog();
+        }
+
+        public void consultarCuentaCorriente()
+        {
+            string query = "SELECT saldo, numCuenta, usuario, pin FROM CuentaCorriente WHERE Identificacion =@Identificacion)";
+
+            try
+            {
+                objetoConexion = new Conexion();
+                using (SqlConnection conexion = objetoConexion.getConexion())
+                {
+                    MessageBox.Show("paso 1b");
+                    // Crear el comando SQL
+                    SqlCommand command = new SqlCommand(query, conexion);
+                    command.Parameters.AddWithValue("@identificacion", cuentaIdentificacion);
+
+                    MessageBox.Show("paso 2b");
+                    // Ejecutar la consulta
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    // Leer los resultados
+                    if (reader != null && reader.Read())
+                    {
+                        float saldo = reader.GetFloat(0);
+                        long numCuenta = reader.GetInt64(1);
+                        string usuario = reader.GetString(2);
+                        int pin = reader.GetInt32(3);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+            }
         }
     }
 }

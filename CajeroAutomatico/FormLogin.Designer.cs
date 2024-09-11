@@ -72,6 +72,7 @@ namespace CajeroAutomatico
             this.textBoxIdentificacion.Name = "textBoxIdentificacion";
             this.textBoxIdentificacion.Size = new System.Drawing.Size(134, 20);
             this.textBoxIdentificacion.TabIndex = 3;
+            this.textBoxIdentificacion.Text = "43313513L";
             // 
             // textBoxPIN
             // 
@@ -80,6 +81,7 @@ namespace CajeroAutomatico
             this.textBoxPIN.PasswordChar = '*';
             this.textBoxPIN.Size = new System.Drawing.Size(134, 20);
             this.textBoxPIN.TabIndex = 4;
+            this.textBoxPIN.Text = "12344321";
             // 
             // FormLogin
             // 

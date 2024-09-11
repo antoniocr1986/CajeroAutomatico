@@ -35,55 +35,55 @@ namespace CajeroAutomatico
 
 
 
-        public void InsertarTarjeta(string numeroTarjeta)
+        public void InsertarClientes(string identificacion)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Tarjetas (Identificacion) VALUES (@Identificacion)";
+                string query = "INSERT INTO CuentasClientes (Identificacion) VALUES (@Identificacion)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Identificacion", numeroTarjeta);
+                    command.Parameters.AddWithValue("@Identificacion", identificacion);
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        public void EliminarTarjeta(int id)
+        public void EliminarCliente(string identificacion)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "DELETE FROM Tarjetas WHERE Id = @Id";
+                string query = "DELETE FROM CuentasClientes WHERE Identificacion = @Identificacion";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", id);
+                    command.Parameters.AddWithValue("@Identificacion", identificacion);
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        public List<string> ObtenerTarjetas()
+        public string ObtenerIdentificacion()
         {
-            List<string> tarjetas = new List<string>();
+            string identificacion = "";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT Identificacion FROM Tarjetas";
+                string query = "SELECT Identificacion FROM CuentasClientes";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            tarjetas.Add(reader.GetString(0));
+                            identificacion = reader.GetString(0);
                         }
                     }
                 }
             }
 
-            return tarjetas;
+            return identificacion;
         }
     }
 }

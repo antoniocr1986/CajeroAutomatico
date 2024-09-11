@@ -10,18 +10,23 @@ namespace CajeroAutomatico
     {
         public double Saldo { get; set; }
         public long NumCuenta { get; set; }
-        public Usuario Usuario { get; set; }
+        public string Identificacion { get; set; }
         public int PIN { get; set; }
         public String[] Transferencias { get; set; }
         public int Contador { get; set; }
 
-        public CuentaCorriente(double saldo, long numCuenta,Usuario usuario, int pin)
+        public CuentaCorriente(double saldo, long numCuenta,string identificacion, int pin)
         {
             Saldo = saldo;
             NumCuenta = numCuenta;
-            Usuario = usuario;
+            Identificacion = identificacion;
             PIN = pin;
             Transferencias = new string[5];
+        }
+
+        public CuentaCorriente()
+        {
+
         }
 
         public double ConsultarSaldo()
