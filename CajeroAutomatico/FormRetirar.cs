@@ -26,17 +26,18 @@ namespace CajeroAutomatico
         private readonly int maxRetirar = 1000;
         private readonly int numMaxRetiros = 10;
 
-        public FormRetirar(string cuentaIdentificacion,Retiro retiro)
+        public FormRetirar(double cuentaSaldo, string cuentaIdentificacion,Retiro retiro)
         {
             InitializeComponent();
+            CuentaSaldo = cuentaSaldo;
             CuentaIdentificacion = cuentaIdentificacion;
             this.retiro = retiro;
         }
 
         private void ButtonConfirmarRetiro_Click(object sender, EventArgs e)
         {
-            double cantidadRetirar;
-            double.TryParse(textBoxRetirar.Text, out cantidadRetirar);
+            float cantidadRetirar;
+            float.TryParse(textBoxRetirar.Text, out cantidadRetirar);
 
             CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
             
@@ -47,7 +48,7 @@ namespace CajeroAutomatico
                 return;
             }
 
-            if (cantidadRetirar > cuenta.ConsultarSaldo())
+            if (cantidadRetirar > bdDMl.ConsultaSaldo(CuentaIdentificacion))
             {
                 MessageBox.Show($"La cantidad no se puede retirar porque es mas grande que el total del saldo de la cuenta." +
                     "\n\nTOTAL CUENTA: " + CuentaSaldo);
@@ -73,7 +74,7 @@ namespace CajeroAutomatico
                 
             if (cuenta.Contador < cuenta.Transferencias.Length)
             {
-                cuenta.RetirarSaldo(cantidadRetirar);
+                bdDMl.RetirarSaldo(cantidadRetirar, CuentaIdentificacion);
                 retiro.RetirosHoyNum++;
                 MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de {cuenta.ConsultarSaldo()} €");
                 cuenta.Transferencias[cuenta.Contador] = $"Retiro: {cantidadRetirar} €";

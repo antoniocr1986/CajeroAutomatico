@@ -22,6 +22,7 @@ namespace CajeroAutomatico
         private int CuentaPin;
         private string CuentaIdentificacion;
         private int CuentaContador;
+        private string[] Transferencias = new string[5];
 
         private Retiro retiro;
         public Conexion objetoConexion;
@@ -45,13 +46,15 @@ namespace CajeroAutomatico
 
         private void ButtonRetirarSaldo_Click(object sender, EventArgs e)
         {
-            FormRetirar retirar = new FormRetirar(CuentaIdentificacion, retiro);
+            CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
+            FormRetirar retirar = new FormRetirar(CuentaSaldo, CuentaIdentificacion, retiro);
             retirar.ShowDialog();
         }
 
         private void ButtonIngresarSaldo_Click(object sender, EventArgs e)
         {
-            FormIngresar ingresar = new FormIngresar(CuentaSaldo, CuentaNumCuenta, CuentaUsuario, CuentaPin, CuentaIdentificacion, CuentaContador);
+            CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
+            FormIngresar ingresar = new FormIngresar(CuentaSaldo, CuentaNumCuenta, CuentaUsuario, CuentaPin, CuentaIdentificacion, CuentaContador, Transferencias);
             ingresar.ShowDialog();  
         }
 
@@ -71,21 +74,28 @@ namespace CajeroAutomatico
 
         private void ButtonTransferencias_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(cuenta.Transferencias[0]))
-
+            try
             {
-                MessageBox.Show($"Las ultimas transferencias son:\n{cuenta.Transferencias[0]}\n{cuenta.Transferencias[1]}\n" +
-                $"{cuenta.Transferencias[2]}\n{cuenta.Transferencias[3]}\n{cuenta.Transferencias[4]}");
+                if (!string.IsNullOrWhiteSpace(Transferencias[0]))
+
+                {
+                    MessageBox.Show($"Las ultimas transferencias son:\n{Transferencias[0]}\n{Transferencias[1]}\n" +
+                    $"{Transferencias[2]}\n{Transferencias[3]}\n{Transferencias[4]}");
+                }
+                else
+                    MessageBox.Show("No hay ninguna transferencia registrada en esta cuenta");
             }
-            else
-                MessageBox.Show("No hay ninguna transferencia registrada en esta cuenta");
+            catch(Exception ex)
+            {
+                MessageBox.Show("Excepcion: " + ex);
+            }     
         }
 
         private void ButtonCerrarSesion_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormLogin formLogin = new FormLogin();
-            formLogin.Cuenta = cuenta;
+            formLogin.Cuenta.Transferencias = Transferencias;
             formLogin.ShowDialog();
         }
 

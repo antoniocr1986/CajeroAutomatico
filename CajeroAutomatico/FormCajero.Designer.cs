@@ -122,6 +122,7 @@ namespace CajeroAutomatico
             this.Controls.Add(this.buttonRetirarSaldo);
             this.Controls.Add(this.buttonConsultaSaldo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FormCajero";
             this.Text = "CAJERO AUTOMATICO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCajero_FormClosing);

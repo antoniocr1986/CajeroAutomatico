@@ -34,19 +34,6 @@ namespace CajeroAutomatico
             return Saldo;
         }
 
-        public void RetirarSaldo(double cantidad)
-        {
-            if (cantidad > 0)
-            {
-                Saldo -= cantidad;
-            }  
-        }
-
-        public void IngresarSaldo( double cantidad)
-        {
-            Saldo += cantidad;
-        }
-
         public long ConsultarNumCuenta()
         {
             return NumCuenta;

@@ -82,5 +82,58 @@ namespace CajeroAutomatico
             }
             return 0;
         }
+
+        public void RetirarSaldo(float cantidad, string identificacion)
+        {
+            string query = "UPDATE CuentaCorriente set saldo = saldo - @Cantidad WHERE identificacion = @identificacion ";
+            try
+            {
+                objetoConexion = new Conexion();
+                using (SqlConnection conexion = objetoConexion.getConexion())
+                {
+                    SqlCommand command = new SqlCommand(query, conexion);
+                    command.Parameters.AddWithValue("@identificacion", identificacion);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader != null && reader.Read())
+                    {
+                        numCuenta = reader.GetInt64(0);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+            }
+        }
+
+        public void IngresarSaldo(float cantidad, string identificacion)
+        {
+            string query = "UPDATE CuentaCorriente set saldo = saldo + @Cantidad WHERE identificacion = @identificacion ";
+            try
+            {
+                objetoConexion = new Conexion();
+                using (SqlConnection conexion = objetoConexion.getConexion())
+                {
+                    SqlCommand command = new SqlCommand(query, conexion);
+                    command.Parameters.AddWithValue("@identificacion", identificacion);
+                    command.Parameters.AddWithValue("@Cantidad", cantidad);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader != null && reader.Read())
+                    {
+                        numCuenta = reader.GetInt64(0);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex);
+            }
+        }
     }
 }

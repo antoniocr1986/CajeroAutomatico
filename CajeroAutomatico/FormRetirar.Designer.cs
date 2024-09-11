@@ -72,6 +72,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonConfirmarRetiro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "FormRetirar";
             this.Text = "RETIRAR DINERO";
             this.ResumeLayout(false);
