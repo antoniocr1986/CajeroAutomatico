@@ -43,6 +43,7 @@
             this.textBoxNuevoPIN.PasswordChar = '*';
             this.textBoxNuevoPIN.Size = new System.Drawing.Size(100, 20);
             this.textBoxNuevoPIN.TabIndex = 0;
+            this.textBoxNuevoPIN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNuevoPIN_KeyPress);
             // 
             // textBoxNuevoPINbis
             // 
@@ -51,6 +52,7 @@
             this.textBoxNuevoPINbis.PasswordChar = '*';
             this.textBoxNuevoPINbis.Size = new System.Drawing.Size(100, 20);
             this.textBoxNuevoPINbis.TabIndex = 1;
+            this.textBoxNuevoPINbis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNuevoPINbis_KeyPress);
             // 
             // lblNuevoPIN
             // 
