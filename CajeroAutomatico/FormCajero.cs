@@ -23,14 +23,17 @@ namespace CajeroAutomatico
         private int CuentaContador;
         private string[] Transferencias = new string[5];
 
-        private Retiro retiro;
+        private Retiro Retiro;
         public Conexion objetoConexion;
 
-        public FormCajero(string identificacion)
+        public FormCajero(string identificacion, Retiro retiro, string[] cuentaTransferencias, int cuentaContador)
         {
             InitializeComponent();
 
             CuentaIdentificacion = identificacion;
+            Retiro = retiro;
+            Transferencias = cuentaTransferencias;
+            CuentaContador = cuentaContador;
         }
 
         private void FormCajero_Load(object sender, EventArgs e)
@@ -46,7 +49,7 @@ namespace CajeroAutomatico
         private void ButtonRetirarSaldo_Click(object sender, EventArgs e)
         {
             CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
-            FormRetirar retirar = new FormRetirar(CuentaSaldo, CuentaIdentificacion, retiro);
+            FormRetirar retirar = new FormRetirar(CuentaSaldo, CuentaIdentificacion, Retiro, Transferencias, CuentaContador);
             retirar.ShowDialog();
         }
 

@@ -22,16 +22,18 @@ namespace CajeroAutomatico
         private int CuentaContador;
         private string[] CuentaTransferencias;
 
-        private Retiro retiro;
+        private Retiro Retiro;
         private readonly int maxRetirar = 1000;
         private readonly int numMaxRetiros = 10;
 
-        public FormRetirar(double cuentaSaldo, string cuentaIdentificacion,Retiro retiro)
+        public FormRetirar(double cuentaSaldo, string cuentaIdentificacion,Retiro retiro, string [] cuentaTransferencias, int cuentaContador)
         {
             InitializeComponent();
             CuentaSaldo = cuentaSaldo;
             CuentaIdentificacion = cuentaIdentificacion;
-            this.retiro = retiro;
+            Retiro = retiro;
+            CuentaTransferencias = cuentaTransferencias;
+            CuentaContador = cuentaContador;
         }
 
         private void ButtonConfirmarRetiro_Click(object sender, EventArgs e)
@@ -61,31 +63,31 @@ namespace CajeroAutomatico
             }
 
             //Para controlar que los retiros de hoy se pongan a 0 cuando la fecha sea un nuevo dia
-            /*if (DateTime.Now.Date != retiro.Fecha.Date)
+            if (DateTime.Now.Date != Retiro.Fecha.Date)
             {
-                retiro.RetirosHoyNum = 0;
+                Retiro.RetirosHoyNum = 0;
             }
 
-            if (retiro.RetirosHoyNum >= numMaxRetiros)
+            if (Retiro.RetirosHoyNum >= numMaxRetiros)
             {
                 MessageBox.Show($"Has superado el maximo de retiros de hoy: {numMaxRetiros}");
                 return;
-            }*/
+            }
                 
-            //if (CuentaContador < CuentaTransferencias.Length)
-            //{
+            if (CuentaContador < CuentaTransferencias.Length) //TODO
+            {
                 bdDMl.RetirarSaldo(cantidadRetirar, CuentaIdentificacion);
-                //retiro.RetirosHoyNum++;
+                Retiro.RetirosHoyNum++;
                 CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
                 MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de { CuentaSaldo } €");
                 CuentaTransferencias[CuentaContador] = $"Retiro: {cantidadRetirar} €";
                 CuentaContador++;
-            //}
-            /*else
+            }
+            else
             {
                 CuentaContador = 0;
                 this.ButtonConfirmarRetiro_Click(sender, e);
-            }*/         
+            }    
         }
 
         private void textBoxRetirar_TextChanged(object sender, EventArgs e)

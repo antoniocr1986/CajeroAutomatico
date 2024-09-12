@@ -14,7 +14,8 @@ namespace CajeroAutomatico
     public partial class FormLogin : Form
     {
         public Usuario Usuario {get;set;}
-        // CuentaCorriente Cuenta { get; set; }
+        private string[] CuentaTransferencias = new string[5];
+        private int CuentaContador = 0;
 
 
         public Retiro Retiro { get; set; }
@@ -84,11 +85,11 @@ namespace CajeroAutomatico
                        
 
                         /*FormCajero cajero1 = new FormCajero(Usuario, cuenta, Retiro);*/
-                        FormCajero cajero1 = new FormCajero(numeroIdentificacionIngresado);
+                        FormCajero cajero1 = new FormCajero(numeroIdentificacionIngresado, Retiro, CuentaTransferencias,CuentaContador);
                         cajero1.Show();
 
                         MessageBox.Show("Creando FormCajero"+
-                            "\nUsuario = " + cuenta.Identificacion+
+                            "\nIdentificacion usuario = " + cuenta.Identificacion+
                             "\nCuenta = " + cuenta+
                             "\nRetiro = " + Retiro);
                     }
@@ -139,7 +140,7 @@ namespace CajeroAutomatico
                     // Aquí ya tienes los datos en la propiedad de cuenta
                     MessageBox.Show("ComprobarCuentaUsuario BD"+
                         "\nSaldo: " + cuenta.Saldo+
-                        "\nUsuario: " + cuenta.Identificacion+
+                        "\nIdentificacion usuario: " + cuenta.Identificacion+
                         "\nPIN: " + cuenta.PIN+
                         "\nNumCuenta: " + cuenta.NumCuenta);
                 }
