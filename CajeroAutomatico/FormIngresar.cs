@@ -38,7 +38,7 @@ namespace CajeroAutomatico
         private void ButtonConfirmar_Click(object sender, EventArgs e)
         {
             float cantidadIngresar;
-            cantidadIngresar = float.Parse(textBoxIngresar.Text);
+            float.TryParse(textBoxIngresar.Text,out cantidadIngresar);
 
             if (cantidadIngresar == 0)
             {
