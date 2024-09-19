@@ -25,6 +25,7 @@ namespace CajeroAutomatico
         private Retiro Retiro;
         private readonly int maxRetirar = 1000;
         private readonly int numMaxRetiros = 10;
+        private readonly int cantidadMaxRetiradaHoy = 3000;
 
         public FormRetirar(double cuentaSaldo, string cuentaIdentificacion,Retiro retiro, string [] cuentaTransferencias, int cuentaContador)
         {
@@ -62,6 +63,18 @@ namespace CajeroAutomatico
                 return;
             }
 
+            //Para controlar que los retiros de hoy no superen los 3000 €
+            if (DateTime.Now.Date != Retiro.Fecha.Date)
+            {
+                Retiro.RetirosHoyEuros = 0;
+            }
+
+            if (Retiro.RetirosHoyEuros >= cantidadMaxRetiradaHoy)
+            {
+                MessageBox.Show($"Has superado el importe maximo de retiros de hoy: {cantidadMaxRetiradaHoy}");
+                return;
+            }
+
             //Para controlar que los retiros de hoy se pongan a 0 cuando la fecha sea un nuevo dia
             if (DateTime.Now.Date != Retiro.Fecha.Date)
             {
@@ -70,7 +83,7 @@ namespace CajeroAutomatico
 
             if (Retiro.RetirosHoyNum >= numMaxRetiros)
             {
-                MessageBox.Show($"Has superado el maximo de retiros de hoy: {numMaxRetiros}");
+                MessageBox.Show($"Has superado el maximo de retiros de hoy: {numMaxRetiros} €");
                 return;
             }
                 
@@ -78,6 +91,7 @@ namespace CajeroAutomatico
             {
                 bdDMl.RetirarSaldo(cantidadRetirar, CuentaIdentificacion);
                 Retiro.RetirosHoyNum++;
+                Retiro.RetirosHoyEuros += cantidadRetirar;
                 CuentaSaldo = bdDMl.ConsultaSaldo(CuentaIdentificacion);
                 MessageBox.Show($"La cantidad retirada ha sido de {cantidadRetirar} € y el saldo total de la cuenta es de { CuentaSaldo } €");
                 CuentaTransferencias[CuentaContador] = $"Retiro: {cantidadRetirar} €";

@@ -19,11 +19,12 @@ namespace CajeroAutomatico
             RetirosHoyNum = 0;  
         }
 
-        public Retiro(DateTime fecha, double valorRetiro)
+        public Retiro(DateTime fecha, double valorRetiro, double RetirosHoyEuros)//TODO
         {
             Fecha = fecha;
             ValorRetiro = valorRetiro;
             RetirosHoyNum = 0;
+            RetirosHoyEuros = 0;//TODO
         }
     }
 }

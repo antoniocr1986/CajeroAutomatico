@@ -18,6 +18,6 @@ HECHO
 
 AMPLICACION MAS COMPLICADA (MAS ADELANTE) V2.0
 -------------------------------------------------------------------------------------
--Posibilidad de registrar nuevo PIN, revisar porque el usuario de los forms es siempre el 53313513L creado al inicio de la aplicación.
+-Posibilidad de registrar nuevo PIN!!!!!!!!!!!!
 
 -Posibilidad de registrar  numero de telefono, un estado de cuenta detallado y un sistema rápido de retirada de efectivo (20,50, 100 € etc)
